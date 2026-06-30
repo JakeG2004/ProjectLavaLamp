@@ -172,44 +172,71 @@ public class Outline : MonoBehaviour {
 
   void LoadSmoothNormals() {
 
-    // Retrieve or generate smooth normals
-    foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
-
-      // Skip if smooth normals have already been adopted
-      if (!registeredMeshes.Add(meshFilter.sharedMesh)) {
-        continue;
-      }
-
       // Retrieve or generate smooth normals
-      var index = bakeKeys.IndexOf(meshFilter.sharedMesh);
-      var smoothNormals = (index >= 0) ? bakeValues[index].data : SmoothNormals(meshFilter.sharedMesh);
+      foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
 
-      // Store smooth normals in UV3
-      meshFilter.sharedMesh.SetUVs(3, smoothNormals);
+        if (meshFilter == null) continue;
+        var mesh = meshFilter.sharedMesh;
+        if (mesh == null) continue;
 
-      // Combine submeshes
-      var renderer = meshFilter.GetComponent<Renderer>();
+        // Wrap individual mesh processing in a try-catch to pinpoint failures
+        try {
+          // Skip if smooth normals have already been adopted
+          if (!registeredMeshes.Add(mesh)) {
+            continue;
+          }
 
-      if (renderer != null) {
-        CombineSubmeshes(meshFilter.sharedMesh, renderer.sharedMaterials);
+          // Retrieve or generate smooth normals
+          var index = bakeKeys.IndexOf(mesh);
+          var smoothNormals = (index >= 0) ? bakeValues[index].data : SmoothNormals(mesh);
+
+          // Guard against null data before applying
+          if (smoothNormals != null && smoothNormals.Count > 0) {
+            mesh.SetUVs(3, smoothNormals);
+          } else {
+            throw new System.NullReferenceException("Generated smoothNormals data list is null or empty.");
+          }
+
+          // Combine submeshes
+          var renderer = meshFilter.GetComponent<Renderer>();
+          if (renderer != null) {
+            CombineSubmeshes(mesh, renderer.sharedMaterials);
+          }
+        }
+        catch (System.Exception ex) {
+          // Log the exact GameObject and Mesh names causing the issue
+          Debug.LogWarning($"[LoadSmoothNormals] Failed processing MeshFilter on GameObject '{meshFilter.gameObject.name}'. " +
+                        $"Mesh Asset Name: '{mesh.name}'. Error: {ex.Message}\n{ex.StackTrace}");
+        }
       }
-    }
 
-    // Clear UV3 on skinned mesh renderers
-    foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
+      // Clear UV3 on skinned mesh renderers
+      foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
 
-      // Skip if UV3 has already been reset
-      if (!registeredMeshes.Add(skinnedMeshRenderer.sharedMesh)) {
-        continue;
+        if (skinnedMeshRenderer == null) continue;
+        var mesh = skinnedMeshRenderer.sharedMesh;
+        if (mesh == null) continue;
+
+        try {
+          // Skip if UV3 has already been reset
+          if (!registeredMeshes.Add(mesh)) {
+            continue;
+          }
+
+          // Clear UV3
+          mesh.uv4 = new Vector2[mesh.vertexCount];
+
+          // Combine submeshes
+          CombineSubmeshes(mesh, skinnedMeshRenderer.sharedMaterials);
+        }
+        catch (System.Exception ex) {
+          Debug.LogError($"[LoadSmoothNormals] Failed processing SkinnedMeshRenderer on GameObject '{skinnedMeshRenderer.gameObject.name}'. " +
+                        $"Mesh Asset Name: '{mesh.name}'. Error: {ex.Message}\n{ex.StackTrace}");
+        }
       }
-
-      // Clear UV3
-      skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
-
-      // Combine submeshes
-      CombineSubmeshes(skinnedMeshRenderer.sharedMesh, skinnedMeshRenderer.sharedMaterials);
-    }
   }
+
+
 
   List<Vector3> SmoothNormals(Mesh mesh) {
     // Universal Safeguard: Catch exceptions if mesh arrays are unreadable or null
