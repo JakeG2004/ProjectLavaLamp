@@ -212,38 +212,51 @@ public class Outline : MonoBehaviour {
   }
 
   List<Vector3> SmoothNormals(Mesh mesh) {
-
-    // Group vertices by location
-    var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
-
-    // Copy normals to a new list
-    var smoothNormals = new List<Vector3>(mesh.normals);
-
-    // Average normals for grouped vertices
-    foreach (var group in groups) {
-
-      // Skip single vertices
-      if (group.Count() == 1) {
-        continue;
+    // Universal Safeguard: Catch exceptions if mesh arrays are unreadable or null
+    try {
+      if (mesh == null || mesh.vertices == null || mesh.vertices.Length == 0) {
+        return new List<Vector3>(mesh != null ? mesh.normals : new Vector3[0]);
       }
 
-      // Calculate the average normal
-      var smoothNormal = Vector3.zero;
+      // Group vertices by location
+      var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
 
-      foreach (var pair in group) {
-        smoothNormal += smoothNormals[pair.Value];
+      // Copy normals to a new list
+      var smoothNormals = new List<Vector3>(mesh.normals);
+
+      // Average normals for grouped vertices
+      foreach (var group in groups) {
+
+        // Skip single vertices
+        if (group.Count() == 1) {
+          continue;
+        }
+
+        // Calculate the average normal
+        var smoothNormal = Vector3.zero;
+
+        foreach (var pair in group) {
+          smoothNormal += smoothNormals[pair.Value];
+        }
+
+        smoothNormal.Normalize();
+
+        // Assign smooth normal to each vertex
+        foreach (var pair in group) {
+          smoothNormals[pair.Value] = smoothNormal;
+        }
       }
 
-      smoothNormal.Normalize();
-
-      // Assign smooth normal to each vertex
-      foreach (var pair in group) {
-        smoothNormals[pair.Value] = smoothNormal;
-      }
+      return smoothNormals;
     }
-
-    return smoothNormals;
+    catch (System.Exception e) {
+      // Gracefully exit and use standard normals if the LINQ query or index fails
+      Debug.LogWarning($"[QuickOutline] Bypassed smooth normals calculation for mesh asset: {e.Message}");
+      return new List<Vector3>(mesh.normals != null ? mesh.normals : new Vector3[mesh.vertexCount]);
+    }
   }
+
+
 
   void CombineSubmeshes(Mesh mesh, Material[] materials) {
 
