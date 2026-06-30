@@ -587,6 +587,170 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &1409794826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409794827}
+  - component: {fileID: 1409794832}
+  - component: {fileID: 1409794831}
+  - component: {fileID: 1409794830}
+  - component: {fileID: 1409794829}
+  - component: {fileID: 1409794828}
+  m_Layer: 0
+  m_Name: RandomFrequency
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1409794827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409794826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.030769903, y: -0.003586466, z: 0.5930152}
+  m_LocalScale: {x: 1.2038032, y: 1.203803, z: 1.2038033}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1678492829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1409794828
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409794826}
+  m_Mesh: {fileID: -7553716758358721678, guid: d1932b958d2c2a445b31793a43c561cc, type: 3}
+--- !u!23 &1409794829
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409794826}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1409794830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409794826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e6f0225069fe137830abb92fd835db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 2d9381e7a0099c7a3a6302ddbbb6de5b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1409794832}
+        m_TargetAssemblyTypeName: FrequencyManipulator, Assembly-CSharp
+        m_MethodName: OnHeightSignalReceived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1409794831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409794826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e6f0225069fe137830abb92fd835db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 627a5ca4eeae09935bcd3e163ee1c92a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1409794832}
+        m_TargetAssemblyTypeName: FrequencyManipulator, Assembly-CSharp
+        m_MethodName: OnWidthSignalReceived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1409794832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409794826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f099b9d4d8b120eeea1f4991e219e464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrequencyManipulator
+  defaultWidth: 1.3
+  defaultHeight: 1.3
+  defaultPos: 0
 --- !u!1 &1624361238
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,8 +855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099b9d4d8b120eeea1f4991e219e464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrequencyManipulator
-  defaultWidth: 1
-  defaultHeight: 1
+  defaultWidth: 1.3
+  defaultHeight: 1.3
   defaultPos: 0
 --- !u!33 &1624361244
 MeshFilter:
@@ -951,6 +1115,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 632758634076777025, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1624361240}
+    - targetCorrespondingSourceObject: {fileID: 632758634076777025, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1409794827}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42daf52e8af948343ac180594a636aac, type: 3}
 --- !u!1660057539 &9223372036854775807
