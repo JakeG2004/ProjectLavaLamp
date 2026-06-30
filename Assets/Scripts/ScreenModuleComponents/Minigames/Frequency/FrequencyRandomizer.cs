@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FrequencyManipulator : MonoBehaviour
+public class FrequencyRandomizer : MonoBehaviour
 {
     [SerializeField] private float defaultWidth;
     [SerializeField] private float defaultHeight;
