@@ -550,6 +550,9 @@ MonoBehaviour:
   defaultWidth: 2.5
   defaultHeight: 2.5
   defaultPos: 0
+  tolerance: 0
+  frequencyMatched: {fileID: 0}
+  stopSiren: {fileID: 0}
 --- !u!1001 &1709795975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6241136791296015443, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.691
+      value: 0.627
       objectReference: {fileID: 0}
     - target: {fileID: 6272704874144529238, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -672,7 +675,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7291094643066754137, guid: 42daf52e8af948343ac180594a636aac, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1173669038}
   m_SourcePrefab: {fileID: 100100000, guid: 42daf52e8af948343ac180594a636aac, type: 3}
 --- !u!1660057539 &9223372036854775807

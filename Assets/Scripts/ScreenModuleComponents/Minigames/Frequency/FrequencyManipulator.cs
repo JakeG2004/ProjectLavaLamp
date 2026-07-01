@@ -9,7 +9,8 @@ public class FrequencyManipulator : MonoBehaviour
     void Awake()
     {
         //Set dimensions to the defaults
-        gameObject.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        gameObject.transform.localScale = new Vector3(defaultWidth, defaultHeight, transform.localScale.z);
+        
 
         //Actually set position (Will need to be readded)
         //transform.position = new Vector3(defaultPos, transform.position.y, transform.position.z);
@@ -17,7 +18,7 @@ public class FrequencyManipulator : MonoBehaviour
 
 
     // Maps 0-1 input to a 0.5-1.5 multiplier of the default height.
-    public virtual void OnHeightSignalReceived(float signalValue)
+    public void OnHeightSignalReceived(float signalValue)
     {
 
         //Map 0-1 to 0.5-1.5 range
@@ -29,7 +30,7 @@ public class FrequencyManipulator : MonoBehaviour
     }
 
     //Maps 0-1 input to a 0.5-1.5 multiplier of the default width.
-    public virtual void OnWidthSignalReceived(float signalValue)
+    public void OnWidthSignalReceived(float signalValue)
     {
 
         //Map 0-1 to 0.5-1.5 range
