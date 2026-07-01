@@ -12,8 +12,8 @@ public class FrequencyManipulator : MonoBehaviour
         gameObject.transform.localScale = new Vector3(defaultWidth, defaultHeight, transform.localScale.z);
         
 
-        //Actually set position (Will need to be readded)
-        //transform.position = new Vector3(defaultPos, transform.position.y, transform.position.z);
+        //Actually set position (Relative to camera)
+        transform.localPosition = new Vector3(defaultPos, 0f, 0.6f);
     }
 
 
@@ -38,5 +38,10 @@ public class FrequencyManipulator : MonoBehaviour
         float scaleX = defaultWidth * multiplier;
 
         gameObject.transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
+    }
+
+    public void OnPosSignalReceived(float signalValue)
+    {
+        gameObject.transform.localPosition = new Vector3(signalValue-0.5f, 0f, 0.7f);
     }
 }
