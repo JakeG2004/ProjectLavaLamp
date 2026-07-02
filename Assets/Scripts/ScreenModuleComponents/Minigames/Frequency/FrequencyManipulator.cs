@@ -5,6 +5,8 @@ public class FrequencyManipulator : MonoBehaviour
     [SerializeField] private float defaultWidth;
     [SerializeField] private float defaultHeight;
     [SerializeField] private float defaultPos;
+    [SerializeField] private FrequencyRandomizer randomizedFrequency;
+    private float inheritedPosScale;
 
     void Awake()
     {
@@ -13,7 +15,12 @@ public class FrequencyManipulator : MonoBehaviour
         
 
         //Actually set position (Relative to camera)
-        transform.localPosition = new Vector3(defaultPos, 0f, 0.6f);
+        transform.localPosition = new Vector3(defaultPos, 0f, 1.13f);
+    }
+
+    void Start()
+    {
+        inheritedPosScale = randomizedFrequency.getRandWidthMult();
     }
 
 
@@ -42,6 +49,6 @@ public class FrequencyManipulator : MonoBehaviour
 
     public void OnPosSignalReceived(float signalValue)
     {
-        gameObject.transform.localPosition = new Vector3(signalValue-0.5f, 0f, 0.7f);
+        gameObject.transform.localPosition = new Vector3((signalValue*inheritedPosScale)-(0.5f*inheritedPosScale), 0f, 1.13f);
     }
 }

@@ -2,39 +2,37 @@ using UnityEngine;
 
 public class FrequencyManager : MonoBehaviour
 {
-    [SerializeField] private VoidEventChannelSO startMazeInteract;
+    [SerializeField] private VoidEventChannelSO startFrequencyInteract;
     [SerializeField] private VoidEventChannelSO stopInteract;
-    [SerializeField] private Transform cursor;
     [SerializeField] private GameObject offScreen;
-    [SerializeField] private GameObject[] mazePrefabs;
-    private Vector3 startPosition;
-    private int currentMazeIndex;
-    private int previousMazeIndex;
-    private bool hasStartedMaze;
+    [SerializeField] private GameObject manipulatedFrequency;
+    [SerializeField] private GameObject randomizedFrequency;
+    private bool hasStartedFrequency;
     
     void Awake()
     {
-        startPosition = cursor.position;
-
-        currentMazeIndex = Random.Range(0, mazePrefabs.Length);
-        mazePrefabs[currentMazeIndex].SetActive(true);
+        hasStartedFrequency = false;
 
         TurnScreenOff(true);
     }
 
-    public void StartMazeInteraction()
+    public void StartFrequencyInteraction()
     {
-        if (hasStartedMaze)
+        if (hasStartedFrequency)
         {
             return;
         }
 
-        hasStartedMaze = true;
+        hasStartedFrequency = true;
+        //Turn on the two frequencies
+        manipulatedFrequency.SetActive(true);
+        randomizedFrequency.SetActive(true);
 
-        if (startMazeInteract != null)
+        if (startFrequencyInteract != null)
         {
-            startMazeInteract.RaiseEvent();
+            startFrequencyInteract.RaiseEvent();
         }
+        TurnScreenOff(false);
     }
 
     public void TurnScreenOff(bool isActive)
@@ -42,28 +40,7 @@ public class FrequencyManager : MonoBehaviour
         offScreen.SetActive(isActive);
     }
 
-    public void ResetPlayerToStart()
-    {
-        cursor.position = startPosition;
-    }
-
-    public void LoadNextMaze()
-    {
-        mazePrefabs[currentMazeIndex].SetActive(false);
-
-        // Pick a maze that is different from the last.
-        do
-        {
-            currentMazeIndex = Random.Range(0, mazePrefabs.Length);
-        } while (currentMazeIndex == previousMazeIndex && mazePrefabs.Length > 1);
-
-        previousMazeIndex = currentMazeIndex;
-
-        mazePrefabs[currentMazeIndex].SetActive(true);
-        hasStartedMaze = false;
-    }
-
-    public void StopMazeInteraction()
+    public void StopFrequencyInteraction()
     {
         AudioManager.Instance.PlaySound(MixerType.SFX, SoundType.MinigameComplete, 1f, transform.position);
 
@@ -72,7 +49,13 @@ public class FrequencyManager : MonoBehaviour
             stopInteract.RaiseEvent();
         }
 
+        hasStartedFrequency = false;
+
+        //Turn off the two frequencies
+        manipulatedFrequency.SetActive(false);
+        randomizedFrequency.SetActive(false);
+
         TurnScreenOff(true);
-        LoadNextMaze();
+
     }
 }

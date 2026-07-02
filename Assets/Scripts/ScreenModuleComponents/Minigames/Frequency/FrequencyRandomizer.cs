@@ -39,10 +39,10 @@ public class FrequencyRandomizer : MonoBehaviour
             randHeightMult = Random.Range(0.5f, 1.5f); 
         }
         //And position
-        randPosOffset = Random.Range(-0.5f, 0.5f); 
+        randPosOffset = Random.Range((-0.5f*randWidthMult), (0.5f*randWidthMult)); 
         while(Mathf.Abs(randPosOffset)<=tolerance)
         {
-            randPosOffset = Random.Range(-0.5f, 0.5f); 
+            randPosOffset = Random.Range(-0.5f*randWidthMult, 0.5f*randWidthMult); 
         }
         
         Debug.Log($"Width multiplier is: {randWidthMult}");
@@ -52,7 +52,7 @@ public class FrequencyRandomizer : MonoBehaviour
 
         gameObject.transform.localScale = new Vector3(defaultWidth*randWidthMult, defaultHeight*randHeightMult, transform.localScale.z);
 
-        transform.localPosition = new Vector3(randPosOffset, 0f, 0.7f);
+        transform.localPosition = new Vector3(randPosOffset, 0f, 1.2f);
         //Actually set position (Will need to be readded)
         //transform.position = new Vector3(defaultPos, transform.position.y, transform.position.z);
     }
@@ -61,8 +61,10 @@ public class FrequencyRandomizer : MonoBehaviour
     void Update()
     {
         if(isWidthClose&&isHeightClose&&isPosClose){
-            Debug.Log("WIN WIN WIN");
-            //.RaiseEvent();
+            //Debug.Log("WIN WIN WIN");
+            stopSiren.RaiseEvent();
+            frequencyMatched.RaiseEvent();
+            Debug.LogWarning("THIS SEEMS TO TRIGGER EVERY TIME YOU RESTART THE GAME AFTER THE FIRST");
         }
     }
 
@@ -76,7 +78,7 @@ public class FrequencyRandomizer : MonoBehaviour
         if(Mathf.Abs(randHeightMult-multiplier)<=tolerance)
         {
             isHeightClose = true;
-            Debug.Log("Height is close!");
+            //Debug.Log("Height is close!");
         }
         else
         {
@@ -95,7 +97,7 @@ public class FrequencyRandomizer : MonoBehaviour
         if(Mathf.Abs(randWidthMult-multiplier)<=tolerance)
         {
             isWidthClose = true;
-            Debug.Log("Width is close!");
+            //Debug.Log("Width is close!");
         }
         else
         {
@@ -106,17 +108,26 @@ public class FrequencyRandomizer : MonoBehaviour
     //Stores signal from sliders to compare against internal random modification
     public void OnPosSignalReceived(float signalValue)
     {
+        float normalizedTarget = randPosOffset / randWidthMult;   // in [-0.5, 0.5]
+        float normalizedSignal = signalValue - 0.5f;               // in [-0.5, 0.5]
 
-        if(Mathf.Abs(randPosOffset-(signalValue-0.5f))<=tolerance)
+        float diff = Mathf.Abs(normalizedTarget - normalizedSignal);
+
+        if (diff <= tolerance)
         {
             isPosClose = true;
-            Debug.Log("Pos is close!");
+            //Debug.Log("Pos is close!");
         }
         else
         {
             isPosClose = false;
-            Debug.Log($"Is {Mathf.Abs(randPosOffset-(signalValue-0.5f))} lower than {tolerance}? No!");
+            Debug.Log($"Is {diff} lower than {tolerance}? No!");
         }
+    }
+
+    public float getRandWidthMult()
+    {
+        return randWidthMult;
     }
 
 
