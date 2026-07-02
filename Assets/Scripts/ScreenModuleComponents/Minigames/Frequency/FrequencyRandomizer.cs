@@ -176,7 +176,19 @@ public class FrequencyRandomizer : MonoBehaviour
         return randWidthMult;
     }
 
+    public float getPeriod()
+    {
+        return randWidthMult - 0.5f;
+    }  
 
-
+    public float getAmplitude()
+    {
+        return randHeightMult - 0.5f;
+    } 
+    
+    public float getOffset()
+    {
+        return (randPosOffset/randWidthMult) + 0.5f;
+    } 
 
 }

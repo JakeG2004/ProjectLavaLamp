@@ -119,6 +119,65 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &80889849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7929745126251137721, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &80889857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80889849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54492ce8717525b86a038a542bd37d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrequencySlider
+  sliding: {fileID: 11400000, guid: 627a5ca4eeae09935bcd3e163ee1c92a, type: 2}
+  moduleCamera: {fileID: 2014678279}
+  startingValue: 0.5
+  top: {fileID: 1976651198}
+  bottom: {fileID: 670994937}
+  returnDuration: 0.5
+  driftSpeed: 0.015
+  randomizedFrequency: {fileID: 1173669038}
+  associatedValue: 0
+--- !u!114 &80889858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80889849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 15d381bc5537c67e483e6a1edfda4c5a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 80889857}
+        m_TargetAssemblyTypeName: FrequencySlider, Assembly-CSharp
+        m_MethodName: StartDrift
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &110612363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4460527482638615959, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &302407760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -346,6 +405,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &670994937 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1155760302842503637, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &871573342 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3914568033175388303, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &985367577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,6 +599,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!4 &1145480857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 165557136381509869, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173669032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7291094643066754137, guid: 42daf52e8af948343ac180594a636aac, type: 3}
@@ -755,6 +829,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1587734024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8885183553292411117, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587734032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587734024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54492ce8717525b86a038a542bd37d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrequencySlider
+  sliding: {fileID: 11400000, guid: d049093b38c342aa49025935ac4d291a, type: 2}
+  moduleCamera: {fileID: 2014678279}
+  startingValue: 0.5
+  top: {fileID: 871573342}
+  bottom: {fileID: 110612363}
+  returnDuration: 0.5
+  driftSpeed: 0.015
+  randomizedFrequency: {fileID: 1173669038}
+  associatedValue: 2
+--- !u!114 &1587734033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587734024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 15d381bc5537c67e483e6a1edfda4c5a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1587734032}
+        m_TargetAssemblyTypeName: FrequencySlider, Assembly-CSharp
+        m_MethodName: StartDrift
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1709795975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,6 +918,26 @@ PrefabInstance:
     - target: {fileID: 2072791824382504613, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       propertyPath: m_Name
       value: FrequencyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470548754373825241, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: eventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 15d381bc5537c67e483e6a1edfda4c5a, type: 2}
+    - target: {fileID: 2470548754373825241, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470548754373825241, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 80889857}
+    - target: {fileID: 2470548754373825241, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartDrift
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470548754373825241, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FrequencySlider, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2539239507672540482, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       propertyPath: defaultWidth
@@ -867,6 +1015,22 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FrequencyRandomizer, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5277629297000635655, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: eventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a74792f9565dbc2b878b49cf819682, type: 2}
+    - target: {fileID: 5277629297000635655, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 80889857}
+    - target: {fileID: 5277629297000635655, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277629297000635655, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FrequencySlider, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5352760920954614641, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       propertyPath: startingValue
       value: 0.5
@@ -927,6 +1091,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8524155277119277964, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: eventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a74792f9565dbc2b878b49cf819682, type: 2}
+    - target: {fileID: 8524155277119277964, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1587734032}
+    - target: {fileID: 8524155277119277964, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524155277119277964, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FrequencySlider, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8710841756161643216, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       propertyPath: startingValue
       value: 0.5
@@ -940,6 +1120,10 @@ PrefabInstance:
     - {fileID: 7507602414859208563, guid: 42daf52e8af948343ac180594a636aac, type: 3}
     - {fileID: 6050358620909476180, guid: 42daf52e8af948343ac180594a636aac, type: 3}
     - {fileID: 3878153685233208942, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+    - {fileID: 8710841756161643216, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+    - {fileID: 860219821962110908, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+    - {fileID: 5352760920954614641, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+    - {fileID: 2470548754373825241, guid: 42daf52e8af948343ac180594a636aac, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 632758634076777025, guid: 42daf52e8af948343ac180594a636aac, type: 3}
@@ -964,7 +1148,110 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7291094643066754137, guid: 42daf52e8af948343ac180594a636aac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1173669044}
+    - targetCorrespondingSourceObject: {fileID: 7929745126251137721, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80889857}
+    - targetCorrespondingSourceObject: {fileID: 7929745126251137721, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80889858}
+    - targetCorrespondingSourceObject: {fileID: 4993802217004948079, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1856350346}
+    - targetCorrespondingSourceObject: {fileID: 4993802217004948079, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1856350347}
+    - targetCorrespondingSourceObject: {fileID: 4993802217004948079, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1856350348}
+    - targetCorrespondingSourceObject: {fileID: 8885183553292411117, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1587734032}
+    - targetCorrespondingSourceObject: {fileID: 8885183553292411117, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1587734033}
   m_SourcePrefab: {fileID: 100100000, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+--- !u!1 &1856350338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4993802217004948079, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1856350346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856350338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54492ce8717525b86a038a542bd37d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FrequencySlider
+  sliding: {fileID: 11400000, guid: 2d9381e7a0099c7a3a6302ddbbb6de5b, type: 2}
+  moduleCamera: {fileID: 2014678279}
+  startingValue: 0.5
+  top: {fileID: 1145480857}
+  bottom: {fileID: 2081803536}
+  returnDuration: 0.5
+  driftSpeed: 0.015
+  randomizedFrequency: {fileID: 1173669038}
+  associatedValue: 1
+--- !u!114 &1856350347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856350338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: d4a74792f9565dbc2b878b49cf819682, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1856350346}
+        m_TargetAssemblyTypeName: FrequencySlider, Assembly-CSharp
+        m_MethodName: ReturnToStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1856350348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856350338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 15d381bc5537c67e483e6a1edfda4c5a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1856350346}
+        m_TargetAssemblyTypeName: FrequencySlider, Assembly-CSharp
+        m_MethodName: StartDrift
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1879737347 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3055859318270446297, guid: 42daf52e8af948343ac180594a636aac, type: 3}
@@ -1066,6 +1353,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563265866be318a48858901494b0dd17, type: 3}
+--- !u!4 &1976651198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2897154623771979811, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2014678279 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4958701667912424706, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2081803536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3897124050150308331, guid: 42daf52e8af948343ac180594a636aac, type: 3}
+  m_PrefabInstance: {fileID: 1709795975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
