@@ -21,6 +21,7 @@ public class FrequencyRandomizer : MonoBehaviour
         isWidthClose = false;
         isHeightClose = false;
         isPosClose = false;
+        //Debug.Log("AAAAAAAAAAAAAAAAA");
 
         //Set dimensions to random
         randWidthMult = Random.Range(0.5f, 1.5f);
@@ -45,9 +46,52 @@ public class FrequencyRandomizer : MonoBehaviour
             randPosOffset = Random.Range(-0.5f*randWidthMult, 0.5f*randWidthMult); 
         }
         
-        Debug.Log($"Width multiplier is: {randWidthMult}");
-        Debug.Log($"Height multiplier is: {randHeightMult}");
-        Debug.Log($"Pos offset is: {randPosOffset}");
+        //Debug.Log($"Width multiplier is: {randWidthMult}");
+        //Debug.Log($"Height multiplier is: {randHeightMult}");
+        //Debug.Log($"Pos offset is: {randPosOffset}");
+
+
+        gameObject.transform.localScale = new Vector3(defaultWidth*randWidthMult, defaultHeight*randHeightMult, transform.localScale.z);
+
+        transform.localPosition = new Vector3(randPosOffset, 0f, 1.2f);
+        //Actually set position (Will need to be readded)
+        //transform.position = new Vector3(defaultPos, transform.position.y, transform.position.z);
+    }
+
+    //We want initialization to happen AGAIN when this object is renabled.
+    void OnEnable()
+    {
+                isWidthClose = false;
+        isHeightClose = false;
+        isPosClose = false;
+        //Debug.Log("AAAAAAAAAAAAAAAAA");
+
+        //Set dimensions to random
+        randWidthMult = Random.Range(0.5f, 1.5f);
+        //Checks to see if random value is within tolerance range of one
+        //If it is, this means it would start as acceptable, and therefore cause issues, 
+        //so we reroll it.
+        while(Mathf.Abs(randWidthMult-1)<=tolerance)
+        {
+            randWidthMult = Random.Range(0.5f, 1.5f); 
+        }
+
+        //Do the Same for Height
+        randHeightMult = Random.Range(0.5f, 1.5f);
+        while(Mathf.Abs(randHeightMult-1)<=tolerance)
+        {
+            randHeightMult = Random.Range(0.5f, 1.5f); 
+        }
+        //And position
+        randPosOffset = Random.Range((-0.5f*randWidthMult), (0.5f*randWidthMult)); 
+        while(Mathf.Abs(randPosOffset)<=tolerance)
+        {
+            randPosOffset = Random.Range(-0.5f*randWidthMult, 0.5f*randWidthMult); 
+        }
+        
+        //Debug.Log($"Width multiplier is: {randWidthMult}");
+        //Debug.Log($"Height multiplier is: {randHeightMult}");
+        //Debug.Log($"Pos offset is: {randPosOffset}");
 
 
         gameObject.transform.localScale = new Vector3(defaultWidth*randWidthMult, defaultHeight*randHeightMult, transform.localScale.z);
@@ -64,7 +108,9 @@ public class FrequencyRandomizer : MonoBehaviour
             //Debug.Log("WIN WIN WIN");
             stopSiren.RaiseEvent();
             frequencyMatched.RaiseEvent();
-            Debug.LogWarning("THIS SEEMS TO TRIGGER EVERY TIME YOU RESTART THE GAME AFTER THE FIRST");
+            isWidthClose = false;
+            isHeightClose = false;
+            isPosClose = false;
         }
     }
 
@@ -121,7 +167,7 @@ public class FrequencyRandomizer : MonoBehaviour
         else
         {
             isPosClose = false;
-            Debug.Log($"Is {diff} lower than {tolerance}? No!");
+            //Debug.Log($"Is {diff} lower than {tolerance}? No!");
         }
     }
 

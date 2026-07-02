@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FrequencyManipulator : MonoBehaviour
 {
@@ -18,8 +19,33 @@ public class FrequencyManipulator : MonoBehaviour
         transform.localPosition = new Vector3(defaultPos, 0f, 1.13f);
     }
 
+    //This is explicit, to make sure it runs after both itself and frequencyrandomizer are initialized
     void Start()
     {
+        inheritedPosScale = randomizedFrequency.getRandWidthMult();
+    }
+
+    //We want this to reset itself every time its renabled
+    void OnEnable()
+    {
+
+        //Set dimensions to the defaults
+        gameObject.transform.localScale = new Vector3(defaultWidth, defaultHeight, transform.localScale.z);
+        
+
+        //Actually set position (Relative to camera)
+        transform.localPosition = new Vector3(defaultPos, 0f, 1.13f);
+
+        //We do this with a frame delay since it needs frequencyrandomizer to have been initialized
+        StartCoroutine(LateEnableRoutine());
+    }
+
+
+    private IEnumerator LateEnableRoutine()
+    {
+        // Wait until the end of the current frame, ensuring everything else has enabled/initialized
+        yield return null; 
+        // Get width scaling from the randomized frequency
         inheritedPosScale = randomizedFrequency.getRandWidthMult();
     }
 
