@@ -172,78 +172,118 @@ public class Outline : MonoBehaviour {
 
   void LoadSmoothNormals() {
 
-    // Retrieve or generate smooth normals
-    foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
-
-      // Skip if smooth normals have already been adopted
-      if (!registeredMeshes.Add(meshFilter.sharedMesh)) {
-        continue;
-      }
-
       // Retrieve or generate smooth normals
-      var index = bakeKeys.IndexOf(meshFilter.sharedMesh);
-      var smoothNormals = (index >= 0) ? bakeValues[index].data : SmoothNormals(meshFilter.sharedMesh);
+      foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
 
-      // Store smooth normals in UV3
-      meshFilter.sharedMesh.SetUVs(3, smoothNormals);
+        if (meshFilter == null) continue;
+        var mesh = meshFilter.sharedMesh;
+        if (mesh == null) continue;
 
-      // Combine submeshes
-      var renderer = meshFilter.GetComponent<Renderer>();
+        // Wrap individual mesh processing in a try-catch to pinpoint failures
+        try {
+          // Skip if smooth normals have already been adopted
+          if (!registeredMeshes.Add(mesh)) {
+            continue;
+          }
 
-      if (renderer != null) {
-        CombineSubmeshes(meshFilter.sharedMesh, renderer.sharedMaterials);
+          // Retrieve or generate smooth normals
+          var index = bakeKeys.IndexOf(mesh);
+          var smoothNormals = (index >= 0) ? bakeValues[index].data : SmoothNormals(mesh);
+
+          // Guard against null data before applying
+          if (smoothNormals != null && smoothNormals.Count > 0) {
+            mesh.SetUVs(3, smoothNormals);
+          } else {
+            throw new System.NullReferenceException("Generated smoothNormals data list is null or empty.");
+          }
+
+          // Combine submeshes
+          var renderer = meshFilter.GetComponent<Renderer>();
+          if (renderer != null) {
+            CombineSubmeshes(mesh, renderer.sharedMaterials);
+          }
+        }
+        catch (System.Exception ex) {
+          // Log the exact GameObject and Mesh names causing the issue
+          Debug.LogWarning($"[LoadSmoothNormals] Failed processing MeshFilter on GameObject '{meshFilter.gameObject.name}'. " +
+                        $"Mesh Asset Name: '{mesh.name}'. Error: {ex.Message}\n{ex.StackTrace}");
+        }
       }
-    }
 
-    // Clear UV3 on skinned mesh renderers
-    foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
+      // Clear UV3 on skinned mesh renderers
+      foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
 
-      // Skip if UV3 has already been reset
-      if (!registeredMeshes.Add(skinnedMeshRenderer.sharedMesh)) {
-        continue;
+        if (skinnedMeshRenderer == null) continue;
+        var mesh = skinnedMeshRenderer.sharedMesh;
+        if (mesh == null) continue;
+
+        try {
+          // Skip if UV3 has already been reset
+          if (!registeredMeshes.Add(mesh)) {
+            continue;
+          }
+
+          // Clear UV3
+          mesh.uv4 = new Vector2[mesh.vertexCount];
+
+          // Combine submeshes
+          CombineSubmeshes(mesh, skinnedMeshRenderer.sharedMaterials);
+        }
+        catch (System.Exception ex) {
+          Debug.LogError($"[LoadSmoothNormals] Failed processing SkinnedMeshRenderer on GameObject '{skinnedMeshRenderer.gameObject.name}'. " +
+                        $"Mesh Asset Name: '{mesh.name}'. Error: {ex.Message}\n{ex.StackTrace}");
+        }
       }
-
-      // Clear UV3
-      skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
-
-      // Combine submeshes
-      CombineSubmeshes(skinnedMeshRenderer.sharedMesh, skinnedMeshRenderer.sharedMaterials);
-    }
   }
+
+
 
   List<Vector3> SmoothNormals(Mesh mesh) {
-
-    // Group vertices by location
-    var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
-
-    // Copy normals to a new list
-    var smoothNormals = new List<Vector3>(mesh.normals);
-
-    // Average normals for grouped vertices
-    foreach (var group in groups) {
-
-      // Skip single vertices
-      if (group.Count() == 1) {
-        continue;
+    // Universal Safeguard: Catch exceptions if mesh arrays are unreadable or null
+    try {
+      if (mesh == null || mesh.vertices == null || mesh.vertices.Length == 0) {
+        return new List<Vector3>(mesh != null ? mesh.normals : new Vector3[0]);
       }
 
-      // Calculate the average normal
-      var smoothNormal = Vector3.zero;
+      // Group vertices by location
+      var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
 
-      foreach (var pair in group) {
-        smoothNormal += smoothNormals[pair.Value];
+      // Copy normals to a new list
+      var smoothNormals = new List<Vector3>(mesh.normals);
+
+      // Average normals for grouped vertices
+      foreach (var group in groups) {
+
+        // Skip single vertices
+        if (group.Count() == 1) {
+          continue;
+        }
+
+        // Calculate the average normal
+        var smoothNormal = Vector3.zero;
+
+        foreach (var pair in group) {
+          smoothNormal += smoothNormals[pair.Value];
+        }
+
+        smoothNormal.Normalize();
+
+        // Assign smooth normal to each vertex
+        foreach (var pair in group) {
+          smoothNormals[pair.Value] = smoothNormal;
+        }
       }
 
-      smoothNormal.Normalize();
-
-      // Assign smooth normal to each vertex
-      foreach (var pair in group) {
-        smoothNormals[pair.Value] = smoothNormal;
-      }
+      return smoothNormals;
     }
-
-    return smoothNormals;
+    catch (System.Exception e) {
+      // Gracefully exit and use standard normals if the LINQ query or index fails
+      Debug.LogWarning($"[QuickOutline] Bypassed smooth normals calculation for mesh asset: {e.Message}");
+      return new List<Vector3>(mesh.normals != null ? mesh.normals : new Vector3[mesh.vertexCount]);
+    }
   }
+
+
 
   void CombineSubmeshes(Mesh mesh, Material[] materials) {
 

@@ -27,6 +27,7 @@ public class SliderController : MonoBehaviour
     void OnMouseDown()
     {
         isBeingControlled = true;
+        //Debug.Log("I AM BE CLICKY");
         
         mouseValueOffset = GetMouseValue() - currentValue;
         
@@ -35,6 +36,7 @@ public class SliderController : MonoBehaviour
     
     void OnMouseUp()
     {
+        //Debug.Log("I am BE CLICKLY-NOT!!!");
         isBeingControlled = false;
     }
     
