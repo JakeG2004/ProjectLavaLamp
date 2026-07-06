@@ -11,6 +11,7 @@ public class BuildItemConstructor : MonoBehaviour
     [SerializeField] private VoidEventChannelSO dropItem;
     [SerializeField] private GameObjectEventChannelSO heldItemChanged;
     [SerializeField] private InteractableSettingsSO Settings;
+	[SerializeField] private InteractableSettingsSO highlightSettings;
     [SerializeField] private VoidEventChannelSO itemPlaced;
 	[SerializeField] private VoidEventChannelSO startHighlight;
 	[SerializeField] private VoidEventChannelSO stopHighlight;
@@ -133,7 +134,9 @@ public class BuildItemConstructor : MonoBehaviour
         BuildOrderEnforcer buildItemRenamer = parent.AddComponent<BuildOrderEnforcer>();
 		ObjectRelocator objectRelocator = parent.AddComponent<ObjectRelocator>();
 		Outline outline = parent.AddComponent<Outline>();
+		outline.enabled = false;
 		Highlight highlight = parent.AddComponent<Highlight>();
+		highlight.highlightSettings = highlightSettings;
         GameObjectEventChannelSubscriber gameObjectSubscriber = parent.AddComponent<GameObjectEventChannelSubscriber>();
         VoidEventChannelSubscriber voidSubscriber = parent.AddComponent<VoidEventChannelSubscriber>();
 		VoidEventChannelSubscriber voidHighlight = parent.AddComponent<VoidEventChannelSubscriber>();

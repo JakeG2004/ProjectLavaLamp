@@ -48,6 +48,7 @@ MonoBehaviour:
   dropItem: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   heldItemChanged: {fileID: 11400000, guid: b678fc006b04c4a4eaabca6fff34bf8e, type: 2}
   Settings: {fileID: 11400000, guid: 550a07fd7d877a444ada2902367f2a50, type: 2}
+  highlightSettings: {fileID: 11400000, guid: 77806eb788a499c4089857ed316e7fa4, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
   startHighlight: {fileID: 11400000, guid: 56ab2c2eea9cc7b4c97ec96a9b47963c, type: 2}
   stopHighlight: {fileID: 11400000, guid: ceb04abb59986304dbb7592e95ab4297, type: 2}

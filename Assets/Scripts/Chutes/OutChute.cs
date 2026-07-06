@@ -4,7 +4,7 @@ using System.Collections;
 public class OutChute : MonoBehaviour
 {
     [SerializeField] private InteractableSettingsSO settings;
-    [SerializeField] private VoidEventChannelSO winLevel;
+    [SerializeField] private VoidEventChannelSO outBoxSecured;
     [SerializeField] private string acceptedItemName;
     [SerializeField] private float delay = 0.5f;
     private Material chuteMaterial;
@@ -71,7 +71,7 @@ public class OutChute : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
-        winLevel.RaiseEvent();
+        outBoxSecured.RaiseEvent();
     }
 
     private IEnumerator RejectItem()

@@ -54,10 +54,12 @@ GameObject:
   - component: {fileID: 6425652860195169981}
   - component: {fileID: 2573106054873994542}
   - component: {fileID: 9176917712177368321}
+  - component: {fileID: -4254890072283621246}
   - component: {fileID: 8662815367093429958}
   - component: {fileID: 2708918519413456165}
   - component: {fileID: 7805302898788370170}
   - component: {fileID: 7555191617579222016}
+  - component: {fileID: -8169613264561099117}
   m_Layer: 3
   m_Name: EmptyOutBox
   m_TagString: Untagged
@@ -351,6 +353,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lid1Collider: {fileID: 1156048703832560402}
   lid2Collider: {fileID: 8199432459963941133}
+--- !u!114 &-4254890072283621246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506996728426710096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae767d395dd18545910a7eefcf4a4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutBoxSecured
+  winLevel: {fileID: 11400000, guid: bc54ed3fc59d2044da2c01f6d48d5ee1, type: 2}
 --- !u!114 &8662815367093429958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +469,34 @@ MonoBehaviour:
       - m_Target: {fileID: 6554863173638951581}
         m_TargetAssemblyTypeName: Highlight, Assembly-CSharp
         m_MethodName: unhighlight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-8169613264561099117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506996728426710096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 1a1661731446015489b733c9eba1f701, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4254890072283621246}
+        m_TargetAssemblyTypeName: OutBoxSecured, Assembly-CSharp
+        m_MethodName: outBoxInOutChute
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

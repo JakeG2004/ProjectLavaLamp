@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject HUD;
 	[SerializeField] private GameObject levelSuccess;
+	[SerializeField] private GameObject levelFailure;
+	[SerializeField] private GameObject endGame;
 	[SerializeField] private GameObject profileNamePanel;
 	public LevelInfoSO[] levels;
 	[SerializeField] private EmployeeData[] profiles;
@@ -126,8 +128,7 @@ public class LevelManager : MonoBehaviour
 		HUD.SetActive(false);
 		setCursorVisibility.RaiseEvent(true);
 		InputSystem.actions.FindActionMap("Player").Disable();
-        InputSystem.actions.FindAction("Pause").Enable();
-	    StartCoroutine(PauseBeforeLevelSuccess());
+		StartCoroutine(PauseBeforeLevelSuccess());
     }
 
 	public void activateMainMenu()
@@ -140,11 +141,20 @@ public class LevelManager : MonoBehaviour
 		StartCoroutine(ContinueToNextLevel());
 	}
 	
+	public void activateEndGame()
+	{
+		StartCoroutine(ContinueToEndGame());
+	}
+	
 	private IEnumerator ReturnToMainMenu()
 	{
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
-		SceneLoader.Instance.UnloadScene("OfficeWorkplace");
+		endGame.SetActive(false);
+		if(SceneLoader.Instance.IsSceneLoaded("OfficeWorkplace") == true)
+		{
+			SceneLoader.Instance.UnloadScene("OfficeWorkplace");
+		}
 		yield return null;
 		mainMenu.SetActive(true);
 	}
@@ -154,12 +164,19 @@ public class LevelManager : MonoBehaviour
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
 		SceneLoader.Instance.UnloadScene("OfficeWorkplace");
-		InputSystem.actions.FindAction("Pause").Disable();
 		yield return null;
 		SceneLoader.Instance.LoadScene("OfficeWorkplace");
 		InputSystem.actions.FindActionMap("Player").Enable();
 		HUD.SetActive(true);
-		
+	}
+	
+	private IEnumerator ContinueToEndGame()
+	{
+		loadingScreen.SetActive(true);
+		levelSuccess.SetActive(false);
+		SceneLoader.Instance.UnloadScene("OfficeWorkplace");
+		yield return null;
+		endGame.SetActive(true);
 	}
 	
 	private IEnumerator PauseBeforeLevelSuccess()
@@ -167,4 +184,5 @@ public class LevelManager : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		levelSuccess.SetActive(true);
 	}
+	
 }
