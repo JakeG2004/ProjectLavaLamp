@@ -28,7 +28,6 @@ public class PickupItem : MonoBehaviour, IInteractable
 	private bool readyToDisableCollision;
     private GameObject currentItemHeld;
     private readonly Collider[] potentialHits = new Collider[10];
-	private string backUpName;
 	
     private void Awake()
     {
@@ -43,7 +42,6 @@ public class PickupItem : MonoBehaviour, IInteractable
         itemColliders = GetComponentsInChildren<Collider>();
 
         itemRigidbody = GetComponent<Rigidbody>();
-		backUpName = this.name;
     }
 
     // Uses late update to follow after camera controller script to prevent object stuttering.
@@ -105,11 +103,6 @@ public class PickupItem : MonoBehaviour, IInteractable
 				}
             }
         }
-		if(this.name != backUpName)
-		{
-			backUpName = this.name;
-			itemNameHover.RaiseEvent(this.name);
-		}
     }
 
 	private void DisableBuildCollision(bool state)

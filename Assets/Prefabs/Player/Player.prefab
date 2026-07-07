@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1135752226171590681}
   - component: {fileID: 2981876097031787171}
   - component: {fileID: 5557901889032749309}
+  - component: {fileID: 7398346613069732690}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -281,6 +282,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6905212619853310072}
   m_Enabled: 1
+--- !u!114 &7398346613069732690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905212619853310072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad8ce6c501bced439017b74477bf75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompleteLevelDevDoor
+  winLevel: {fileID: 11400000, guid: bc54ed3fc59d2044da2c01f6d48d5ee1, type: 2}
 --- !u!1001 &232649603622485051
 PrefabInstance:
   m_ObjectHideFlags: 0
