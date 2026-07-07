@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4f5dae407b67254db50845862385976, type: 2}
   - {fileID: 11400000, guid: bebe09148b94f26498fa52d8b9c6040c, type: 2}
   - {fileID: 11400000, guid: 1311b219a0006444fa7a48e0e630db0f, type: 2}
-  CMSpackage: {fileID: 0}
+  CMSpackage: {fileID: 11400000, guid: 3e50936cfe42b454a9ea7abbb39f3e82, type: 2}
   buildName: Geodynamite
   buildInstructions: {fileID: 11400000, guid: 5d7fa6c4bca266a42b2d9e94873985e3, type: 2}
