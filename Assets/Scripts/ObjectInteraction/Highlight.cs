@@ -3,7 +3,7 @@ using UnityEngine;
 public class Highlight : MonoBehaviour
 {
 	private Outline outline;
-	[SerializeField] private InteractableSettingsSO highlightSettings;
+	public InteractableSettingsSO highlightSettings;
 	
 	public void Awake()
 	{

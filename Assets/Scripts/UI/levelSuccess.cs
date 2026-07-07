@@ -1,16 +1,28 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
-public class levelSuccess : MonoBehaviour
+public class LevelSuccess : MonoBehaviour
 {
     private EmployeeData currentSession;
 	private GameObject planetNameObject;
 	private GameObject buildNameObject;
+	private GameObject stamp1;
+	private GameObject stamp2;
+	private GameObject stamp3;
+	private GameObject displayBuild;
+	private TMP_Text nextButton;
+	private int levelNumber;
+	private string planetName;
+	[SerializeField] private Sprite stampHPC;
+	[SerializeField] private Sprite stampCMS;
 	[SerializeField] private VoidEventChannelSO triggerMainMenu;
     [SerializeField] private VoidEventChannelSO triggerNextLevel;
+	[SerializeField] private VoidEventChannelSO triggerEndGame;
 	[SerializeField] private VoidEventChannelSO startGame;
+	[SerializeField] private Sprite[] buildImages;
 	
-	void OnEnable()
+	public void OnEnable()
     {
 		foreach(Transform child in gameObject.GetComponentsInChildren<Transform>())
 		{
@@ -22,6 +34,26 @@ public class levelSuccess : MonoBehaviour
 			{
 				buildNameObject = child.gameObject;
 			}
+			if(child.name == "Stamp1")
+			{
+				stamp1 = child.gameObject;
+			}
+			if(child.name == "Stamp2")
+			{
+				stamp2 = child.gameObject;
+			}
+			if(child.name == "Stamp3")
+			{
+				stamp3 = child.gameObject;
+			}
+			if(child.name == "DisplayBuild")
+			{
+				displayBuild = child.gameObject;
+			}
+			if(child.name == "NextLevel")
+			{
+				nextButton = child.gameObject.GetComponentInChildren<TMP_Text>();
+			}
 		}
           if (LevelManager.Instance != null && LevelManager.Instance.currentSession != null)
         {
@@ -32,26 +64,20 @@ public class levelSuccess : MonoBehaviour
 	
 	public void setLevelSuccessScreen()
 	{
-		string planetName = "";
-		int levelNumber;
-		if(LevelManager.Instance.currentSession.currentDay - 2 == -1)
+		if(LevelManager.Instance.currentSession.currentDay == 1) //It turned over due to the game looping but they just completed the end
 		{
 			levelNumber = LevelManager.Instance.levels.Length - 1;
+			nextButton.text = "Continue";
+			
 		}else
 		{
 			levelNumber = LevelManager.Instance.currentSession.currentDay - 2;
+			nextButton.text = "Next Level";
 		}
 		LevelInfoSO currentLevel = LevelManager.Instance.levels[levelNumber];
-		if (LevelManager.Instance.currentSession.currentDay >= 1 && LevelManager.Instance.currentSession.currentDay <= 3)
-		{
-			planetName = "Planet 1"; 
-		}else if (LevelManager.Instance.currentSession.currentDay >= 4 && LevelManager.Instance.currentSession.currentDay <= 6)
-		{
-			planetName = "Planet 2"; 
-		}else if (LevelManager.Instance.currentSession.currentDay >= 7 && LevelManager.Instance.currentSession.currentDay <= 9)
-		{
-			planetName = "Planet 3"; 
-		}
+		setStamps();
+		displayBuild.GetComponent<Image>().sprite = buildImages[levelNumber];
+		displayBuild.GetComponent<Image>().color = Color.white;
 		string buildName = currentLevel.buildName;
 		string spaceName = "";
 		spaceName = spaceName + buildName[0];
@@ -74,7 +100,124 @@ public class levelSuccess : MonoBehaviour
 	
 	public void PressNextLevelButton()
 	{
-		triggerNextLevel.RaiseEvent();
-		startGame.RaiseEvent();
+		if(LevelManager.Instance.currentSession.currentDay == 1)
+		{
+			triggerEndGame.RaiseEvent();
+		}
+		else
+		{
+			triggerNextLevel.RaiseEvent();
+			startGame.RaiseEvent();
+		}
+		
+	}
+	
+	private void setStamps()
+	{
+		int adjustedNumber = levelNumber + 1;
+		if (adjustedNumber >= 1 && adjustedNumber <= 3)
+		{
+			planetName = "Athanor"; 
+			for(int i = 0; i < 3; i++)
+			{
+				GameObject stamp = null;
+				if(i == 0)
+				{
+					stamp = stamp1;
+				}
+				else if(i == 1)
+				{
+					stamp = stamp2;
+				}
+				else
+				{
+					stamp = stamp3;
+				}
+				if(currentSession.levelBuildChoices[i] == 1)
+				{
+					stamp.GetComponent<Image>().sprite = stampHPC;
+					stamp.GetComponent<Image>().color = Color.white;
+				}
+				else if(currentSession.levelBuildChoices[i] == 2)
+				{
+					stamp.GetComponent<Image>().sprite = stampCMS;
+					stamp.GetComponent<Image>().color = Color.white;
+				}
+				else{
+					stamp.GetComponent<Image>().sprite = null;
+					stamp.GetComponent<Image>().color = Color.clear;
+				}
+			}
+			
+		}
+		else if (adjustedNumber  >= 4 && adjustedNumber  <= 6)
+		{
+			planetName = "Mellago"; 
+			for(int i = 0; i < 3; i++)
+			{
+				GameObject stamp = null;
+				if(i == 0)
+				{
+					stamp = stamp1;
+				}
+				else if(i == 1)
+				{
+					stamp = stamp2;
+				}
+				else
+				{
+					stamp = stamp3;
+				}
+				if(currentSession.levelBuildChoices[i + 3] == 1)
+				{
+					stamp.GetComponent<Image>().sprite = stampHPC;
+					stamp.GetComponent<Image>().color = Color.white;
+				}
+				else if(currentSession.levelBuildChoices[i + 3] == 2)
+				{
+					stamp.GetComponent<Image>().sprite = stampCMS;
+					stamp.GetComponent<Image>().color = Color.white;
+				}
+				else
+				{
+					stamp.GetComponent<Image>().sprite = null;
+					stamp.GetComponent<Image>().color = Color.clear;
+				}
+			}
+		}
+		else if (adjustedNumber  >= 7 && adjustedNumber  <= 9)
+		{
+			planetName = "Crasis"; 
+			for(int i = 0; i < 3; i++)
+			{
+				GameObject stamp = null;
+				if(i == 0)
+				{
+					stamp = stamp1;
+				}
+				else if(i == 1)
+				{
+					stamp = stamp2;
+				}
+				else
+				{
+					stamp = stamp3;
+				}
+				if(currentSession.levelBuildChoices[i + 6] == 1)
+				{
+					stamp.GetComponent<Image>().sprite = stampHPC;
+					stamp.GetComponent<Image>().color = Color.white;
+				}
+				else if(currentSession.levelBuildChoices[i + 6] == 2)
+				{
+					stamp.GetComponent<Image>().sprite = stampCMS;
+					stamp.GetComponent<Image>().color = Color.white;
+				}
+				else{
+					stamp.GetComponent<Image>().sprite = null;
+					stamp.GetComponent<Image>().color = Color.clear;
+				}
+			}
+		}
 	}
 }
