@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BuildOrderEnforcer : MonoBehaviour
 {
@@ -30,8 +32,14 @@ public class BuildOrderEnforcer : MonoBehaviour
         TogglePlacementNodes(true);
     }
 
-    public void CheckIfFinishedBuilding()
+	public void CheckIfFinishedBuilding()
+	{
+		StartCoroutine(CheckIfFinishedBuildingCoroutine());
+	}
+	
+    public IEnumerator CheckIfFinishedBuildingCoroutine()
     {
+		yield return null;
         PlacementTrigger[] placementPoints = GetComponentsInChildren<PlacementTrigger>(true);
 
         int placementCount = 0;

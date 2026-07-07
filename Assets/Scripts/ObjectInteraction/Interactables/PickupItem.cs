@@ -28,6 +28,7 @@ public class PickupItem : MonoBehaviour, IInteractable
 	private bool readyToDisableCollision;
     private GameObject currentItemHeld;
     private readonly Collider[] potentialHits = new Collider[10];
+	private string backUpName;
 	
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class PickupItem : MonoBehaviour, IInteractable
         itemColliders = GetComponentsInChildren<Collider>();
 
         itemRigidbody = GetComponent<Rigidbody>();
+		backUpName = this.name;
     }
 
     // Uses late update to follow after camera controller script to prevent object stuttering.
@@ -69,38 +71,45 @@ public class PickupItem : MonoBehaviour, IInteractable
 
             for (int i = 0; i < itemColliders.Length; i++)
             {
-                Transform itemTransform = itemColliders[i].transform;
+				if(itemColliders[i] != null)
+				{
+					Transform itemTransform = itemColliders[i].transform;
+					
+					if (itemTransform.TryGetComponent<PlacementTrigger>(out _))
+					{
+						// Skip placement points so their colliders don't interfere with item movement.
+						continue;
+					}
 
-                if (itemTransform.TryGetComponent<PlacementTrigger>(out _))
-                {
-                    // Skip placement points so their colliders don't interfere with item movement.
-                    continue;
-                }
-
-                // Calculate the position offset based on the collider's position relative to the base collider.
-                Vector3 positionOffset = predictedPosition + 
+					// Calculate the position offset based on the collider's position relative to the base collider.
+					Vector3 positionOffset = predictedPosition + 
                                          (itemTransform.position - itemColliders[0].transform.position);
-                Quaternion rotationOffset = finalRotation * itemTransform.localRotation;
+					Quaternion rotationOffset = finalRotation * itemTransform.localRotation;
 
-                if (IsValidPosition(cameraPosition, itemColliders[i], positionOffset, rotationOffset))
-                {
-                    // Can't use predictedPosition since currentDistance may have changed inside IsValidPosition.
-                    Vector3 targetPosition = cameraPosition + (cameraRotation * grabOffset * currentDistance);
+					if (IsValidPosition(cameraPosition, itemColliders[i], positionOffset, rotationOffset))
+					{
+						// Can't use predictedPosition since currentDistance may have changed inside IsValidPosition.
+						Vector3 targetPosition = cameraPosition + (cameraRotation * grabOffset * currentDistance);
 
-                    transform.SetPositionAndRotation(targetPosition, finalRotation);
-                }
-                else
-                {
-                    dropItem.RaiseEvent();
-                    if (heldItemCollision != null)
-                    {
-                        heldItemCollision.RaiseEvent(gameObject);
-                    }
-
-                    break;
-                }
+						transform.SetPositionAndRotation(targetPosition, finalRotation);
+					}
+					else
+					{
+						dropItem.RaiseEvent();
+						if (heldItemCollision != null)
+						{
+							heldItemCollision.RaiseEvent(gameObject);
+						}
+						break;
+					}
+				}
             }
         }
+		if(this.name != backUpName)
+		{
+			backUpName = this.name;
+			itemNameHover.RaiseEvent(this.name);
+		}
     }
 
 	private void DisableBuildCollision(bool state)
@@ -150,7 +159,10 @@ public class PickupItem : MonoBehaviour, IInteractable
     {
 		foreach(Collider col in itemColliders)
 		{
-			Physics.IgnoreCollision(col, GameObject.FindWithTag("Player").GetComponent<Collider>(), true);
+			if(col != null)
+			{
+				Physics.IgnoreCollision(col, GameObject.FindWithTag("Player").GetComponent<Collider>(), true);
+			}
 		}
 		
         heldItemChanged.RaiseEvent(this.gameObject);
@@ -175,7 +187,10 @@ public class PickupItem : MonoBehaviour, IInteractable
     {
 		foreach(Collider col in itemColliders)
 		{
-			Physics.IgnoreCollision(col, GameObject.FindWithTag("Player").GetComponent<Collider>(), false);
+			if(col != null)
+			{
+				Physics.IgnoreCollision(col, GameObject.FindWithTag("Player").GetComponent<Collider>(), false);
+			}
 		}
         heldItemChanged.RaiseEvent(null);
         SetHeldState(false);
@@ -316,7 +331,10 @@ public class PickupItem : MonoBehaviour, IInteractable
 
         for (int i = 0; i < itemColliders.Length; i++)
         {
-            itemColliders[i].enabled = !isHeld;
+			if(itemColliders[i] != null)
+			{
+				itemColliders[i].enabled = !isHeld;
+			}
         }
 
         itemRigidbody.useGravity = !isHeld;
