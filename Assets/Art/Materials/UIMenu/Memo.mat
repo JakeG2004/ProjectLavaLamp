@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7649529392543567274
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Terminal2
+  m_Name: Memo
   m_Shader: {fileID: -6465566751694194690, guid: 23325ef2d30650c40913775e72ecb425, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -33,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Base_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0c723ecc0e826fa4e81343bb79ebe8c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -69,11 +82,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f7d780362ae231b449290a1711e59c68, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f2427d0ebbc910140aa37787be0157ab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
@@ -167,8 +180,7 @@ Material:
     - _GlossyReflections: 0
     - _Gradent_normal_noise_scale: 2.5
     - _Gradent_normal_power: 1
-    - _InvertColors: 1
-    - _IsInput: 0
+    - _InvertColors: 0
     - _Mask_Noise_Scale: 40
     - _Metal_Noise_Scale: 50
     - _Metalic_Noise_Scale: 50
@@ -197,7 +209,7 @@ Material:
     - _Use_AO_map_as_base: 0
     - _Use_Emissive: 0
     - _Use_Normal_Image: 1
-    - _Use_Terminal_Shader: 1
+    - _Use_Terminal_Shader: 0
     - _Use_emmissive_noise: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
@@ -207,8 +219,6 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 0}
-    - _Color2: {r: 0.73333335, g: 0.86274517, b: 0.4156863, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_color: {r: 0, g: 0, b: 0, a: 1}
     - _Noise_Mask_Tileing: {r: 2, g: 3, b: 0, a: 0}
@@ -218,20 +228,7 @@ Material:
     - _Oxidation_Color: {r: 0.27058816, g: 0.37203258, b: 0.16220185, a: 1}
     - _Rust_Color: {r: 0.745, g: 0.39699256, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Terminal_Color_1: {r: 0.73333335, g: 0.86274517, b: 0.4156863, a: 1}
-    - _Terminal_Color_2: {r: 1, g: 1, b: 1, a: 1}
+    - _Terminal_Color_1: {r: 1, g: 0.42745098, b: 0, a: 1}
+    - _Terminal_Color_2: {r: 0, g: 0.43137258, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6711551082601033541
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
-  version: 10

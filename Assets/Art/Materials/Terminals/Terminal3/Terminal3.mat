@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Terminal3
-  m_Shader: {fileID: -6465566751694194690, guid: cec72a22360dd2d4faee45e1a073f3d4, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 23325ef2d30650c40913775e72ecb425, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,7 +24,15 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Ambent_Occulsion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Map:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -48,12 +56,28 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Emissive_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal_Map:
+        m_Texture: {fileID: 2800000, guid: 90dac72da5d3dfe4880568366168c346, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -114,27 +138,48 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AO_Contrast: 0.18
+    - _AO_noise_scale: 150
+    - _AO_power: 0.5
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Base_color_Mask_Contrast: 0.18
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _Blend_smoothness: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Damage_Amount: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _Emissive_Mask_Contrast: 0.18
+    - _Emissive_noise_scale: 29.74
+    - _Emissive_power: 0.5
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Gradent_normal_noise_scale: 2.5
+    - _Gradent_normal_power: 1
     - _InvertColors: 0
     - _IsInput: 0
+    - _Mask_Noise_Scale: 40
+    - _Metal_Noise_Scale: 50
+    - _Metalic_Noise_Scale: 50
+    - _Metalic_Noise_contrast: 1
     - _Metallic: 0
+    - _Metallic_Mask_Contrast: 0.18
+    - _Non_metal_noise_scale: 50
+    - _Normal_Image_Strength: 1
+    - _Normal_Mask_Contrast: 0.18
+    - _Normal_Noise_size: 150
+    - _Normal_Strength: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -142,20 +187,39 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
+    - _Smoothness_Mask_Contrast: 0.18
+    - _Smoothness_Noise_scale: 50
+    - _Smothness: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _Use_AO_map_as_base: 0
+    - _Use_Emissive: 0
+    - _Use_Normal_Image: 1
+    - _Use_Terminal_Shader: 1
+    - _Use_emmissive_noise: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
+    - _blend_metals: 0.59
+    - _metal_senstivity: 0.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.4901961, g: 0.81568635, b: 0.80392164, a: 0}
     - _Color2: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Emissive_color: {r: 0, g: 0, b: 0, a: 1}
+    - _Noise_Mask_Tileing: {r: 2, g: 3, b: 0, a: 0}
+    - _Non_metal_deterioration_color: {r: 0.48131, g: 0.50460774, b: 0.9056604, a: 1}
+    - _Normal_Image_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Normal_image_tileing: {r: 1, g: 1, b: 0, a: 0}
+    - _Oxidation_Color: {r: 0.27058816, g: 0.37203258, b: 0.16220185, a: 1}
+    - _Rust_Color: {r: 0.745, g: 0.39699256, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Terminal_Color_1: {r: 0.4901961, g: 0.81568635, b: 0.80392164, a: 1}
+    - _Terminal_Color_2: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7511138911344240238
