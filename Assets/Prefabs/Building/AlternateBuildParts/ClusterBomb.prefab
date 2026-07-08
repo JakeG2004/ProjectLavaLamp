@@ -52,7 +52,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258285499989484323}
-  m_Mesh: {fileID: -3980548947232384000, guid: 90dfefdc2f4dbbe489008a5bbb6a6c52, type: 3}
+  m_Mesh: {fileID: 8984747457704838320, guid: b41a3b4a2434caa448af8a993a47bacc, type: 3}
 --- !u!23 &2009040479518963367
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 4786106661811277033}
   - component: {fileID: 7330443744286260986}
   - component: {fileID: 6884617085553479391}
-  - component: {fileID: 5655890710869721986}
+  - component: {fileID: 4675967594927124453}
   m_Layer: 3
   m_Name: ClusterBombCollider
   m_TagString: Untagged
@@ -446,7 +446,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8984747457704838320, guid: b41a3b4a2434caa448af8a993a47bacc, type: 3}
---- !u!114 &5655890710869721986
+--- !u!114 &4675967594927124453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: ClusterBomb
   placementContainer: {fileID: 1326872272708697962}

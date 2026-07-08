@@ -6,7 +6,7 @@ public class PlacementTrigger : MonoBehaviour, IInteractable
 {
     [SerializeField] private VoidEventChannelSO stopInteraction;
     [SerializeField] private VoidEventChannelSO itemPlaced;
-    [SerializeField] private VoidEventChannelSO clearCrosshair;
+    [SerializeField] private VoidEventChannelSO defaultCrosshair;
     [SerializeField] private VoidEventChannelSO thumbsUpCrosshair;
     [SerializeField] private string requiredItem;
     [SerializeField] private Transform placementContainer;
@@ -241,9 +241,9 @@ public class PlacementTrigger : MonoBehaviour, IInteractable
 
     public void StopHover()
     {
-        if (clearCrosshair != null)
+        if (defaultCrosshair != null)
         {
-            clearCrosshair.RaiseEvent();
+            defaultCrosshair.RaiseEvent();
         }
     }
 

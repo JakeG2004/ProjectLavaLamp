@@ -6,7 +6,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private BoolEventChannelSO setCursorVisibility;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject optionsMenu;
-    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject startMenu;
 	[SerializeField] private GameObject levelSuccess;
     [SerializeField] private GameObject HUD;
     [SerializeField] private string sceneName = "OfficeWorkplace";
@@ -56,7 +56,7 @@ public class PauseMenuManager : MonoBehaviour
             return;
         }
 
-        if (!optionsMenu.activeInHierarchy && !mainMenu.activeInHierarchy && !levelSuccess.activeInHierarchy)
+        if (!optionsMenu.activeInHierarchy && !startMenu.activeInHierarchy && !levelSuccess.activeInHierarchy)
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
 

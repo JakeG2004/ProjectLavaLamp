@@ -17,7 +17,7 @@ public class ProfileButton : MonoBehaviour
 			if(profileName.employeeName != ""){
 				profileNameText.text = profileName.employeeName;
 			}else{
-				profileNameText.text = "Blank";
+				profileNameText.text = "Empty Profile";
 			}
 		}
 	}

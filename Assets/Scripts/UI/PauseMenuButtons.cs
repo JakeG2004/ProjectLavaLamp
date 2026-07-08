@@ -7,9 +7,9 @@ public class PauseMenuButtons : MonoBehaviour
 {
     [SerializeField] private GameObject currentMenu;
     [SerializeField] private GameObject optionsMenu;
-    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject startMenu;
     [SerializeField] private PauseMenuManager pauseMenuManager;
-    [SerializeField] private GameObject confirmMainMenuPanel;
+    [SerializeField] private GameObject confirmStartMenuPanel;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private string sceneName = "OfficeWorkplace";
 
@@ -27,14 +27,14 @@ public class PauseMenuButtons : MonoBehaviour
         optionsMenu.SetActive(true);
     }
 
-    public void LoadMainMenu()
+    public void LoadStartMenu()
     {
-        confirmMainMenuPanel.SetActive(true);
+        confirmStartMenuPanel.SetActive(true);
     }
 
-    public void ConfirmMainMenuLoad()
+    public void ConfirmStartMenuLoad()
     {
-        confirmMainMenuPanel.SetActive(false);
+        confirmStartMenuPanel.SetActive(false);
         loadingScreen.SetActive(true);
 		StartCoroutine(WaitToUnloadScene());
 		
@@ -44,11 +44,11 @@ public class PauseMenuButtons : MonoBehaviour
 		SceneLoader.Instance.UnloadScene(sceneName);
 		yield return null;
 		UnpauseGame();
-		mainMenu.SetActive(true);
+		startMenu.SetActive(true);
 	}
 	
-    public void CancelMainMenuLoad()
+    public void CancelStartMenuLoad()
     {
-        confirmMainMenuPanel.SetActive(false);
+        confirmStartMenuPanel.SetActive(false);
     }
 }

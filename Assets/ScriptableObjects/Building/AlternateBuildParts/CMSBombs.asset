@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoxItemsSO
   explosiveness: 0.5
   items:
-  - gameObject: {fileID: 258285499989484323, guid: ef9c080e16f856544974e9c2ce46a107, type: 3}
+  - gameObject: {fileID: 258285499989484323, guid: 34de1376d66063747808a4c2abf3af99, type: 3}
     count: 4
