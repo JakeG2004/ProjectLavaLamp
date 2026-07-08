@@ -1,7 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class MinigameManager : MonoBehaviour
 {
+    [Tooltip("Used for quick balancing.")]
+    [SerializeField] int effLossPerSirenPerSecond;
+    [SerializeField] int effLossMegaFail;
+    [SerializeField] int effGainOnComplete;
+
     [Tooltip("The delay between sirens (excluding modifiers) depending on the day it is. 0 for none.")]
     [SerializeField] int[] DayExpectedTriggerWait;
 
@@ -40,6 +46,9 @@ public class MinigameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //Make absolutely sure we aren't creating duplicate coroutines
+        StopAllCoroutines();
+
         // Pull the data out of the Level Manager
         if (LevelManager.Instance != null && LevelManager.Instance.currentSession != null)
         {
@@ -49,13 +58,14 @@ public class MinigameManager : MonoBehaviour
             if(currentSession.currentDay!=0 && 
                     DayExpectedTriggerWait.Length >= currentSession.currentDay)
             {
+                StartCoroutine(DegradeEfficiencyRoutine());
                 //Actually start the sequence, starting with the day's default timer
                 Invoke("nextTriggerTimer", DayExpectedTriggerWait[currentSession.currentDay-1]);
             }       
         }
         else
         {
-            Debug.LogError("Couldn't pull session data from levelmanager!");
+            Debug.LogError("Couldn't pull session data from levelmanager! Minigames will not be triggered.");
         }
     }
 
@@ -102,7 +112,8 @@ public class MinigameManager : MonoBehaviour
     int findNextTriggerableMinigame(){
 
         if(!isAnyAvailableSirens()){
-            efficiencySubtract.RaiseEvent(50);
+            efficiencySubtract.RaiseEvent(effLossMegaFail);
+            Debug.Log("PAIN AND SUFFERING UPON YE");
             return -1;
         }
 
@@ -152,6 +163,38 @@ public class MinigameManager : MonoBehaviour
         return isThere;
     }
 
+    IEnumerator DegradeEfficiencyRoutine()
+    {
+        //Set our delay
+        var delay = new WaitForSeconds(1f); 
+        
+        //Yes, this is meant to be an infinite loop
+        while(true)
+        {
+            //This stops it from crashing things, making sure it only happens once per second.
+            yield return delay;
+            
+            int totalActiveSirens = 0;
+            
+            //Count amount of active sirens
+            for(int i = 0; i < terminalSirensAreActive.Length; i++)
+            {
+                if(terminalSirensAreActive[i])
+                {
+                    totalActiveSirens++;
+                }
+            }
+            
+            // Send signal with amount of sirens active to subtract each second.
+            if(totalActiveSirens > 0)
+            {
+                efficiencySubtract.RaiseEvent(totalActiveSirens*effLossPerSirenPerSecond);
+                //Debug.Log($"Tried to send signal!: {totalActiveSirens*effLossPerSirenPerSecond}");
+            }
+        }
+    }
+
+    //How we track when our own signals are sent out to start a minigame siren
     public void siren2TurnedOn(){
         terminalSirensAreActive[0] = true;
     }
@@ -165,17 +208,32 @@ public class MinigameManager : MonoBehaviour
         terminalSirensAreActive[3] = true;
     }
 
+    //How we track when minigames have been completed
     public void siren2TurnedOff(){
-        terminalSirensAreActive[0] = false;
+        if(terminalSirensAreActive[0])
+        {
+            efficiencyAdd.RaiseEvent(effGainOnComplete);
+            terminalSirensAreActive[0] = false;
+        }
     }
     public void siren3TurnedOff(){
-        terminalSirensAreActive[1] = false;
+        if(terminalSirensAreActive[1])
+        {
+            efficiencyAdd.RaiseEvent(effGainOnComplete);
+            terminalSirensAreActive[1] = false;
+        }
     }
     public void siren4TurnedOff(){
-        terminalSirensAreActive[2] = false;
+        if(terminalSirensAreActive[2]){
+            efficiencyAdd.RaiseEvent(effGainOnComplete);
+            terminalSirensAreActive[2] = false;
+        }
     }
     public void siren5TurnedOff(){
-        terminalSirensAreActive[3] = false;
+        if(terminalSirensAreActive[3]){
+            efficiencyAdd.RaiseEvent(effGainOnComplete);
+            terminalSirensAreActive[3] = false;
+        }
     }
 
 }

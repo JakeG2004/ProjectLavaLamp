@@ -19,7 +19,7 @@ public class SecurityCameraFollow : MonoBehaviour, IInteractable
     private readonly Quaternion rotationOffset = Quaternion.Euler(-90f, 180f, 0f);
     private Transform mainCameraTransform;
     private Transform disablePointTransform;
-    private int state = 0; //0 is active, 1 is disabled, 2 is a unique "force splash" state for day 2.
+    private int state = 0; //0 is active, 1 is disabled, 2 is a unique "force splash" state for day 2, 3 is transitioning between rooms.
     [SerializeField] private int dayForceSplash;
     [SerializeField] private int[] reActivateTimer;
     Transform coffee; //Reference to particle child
