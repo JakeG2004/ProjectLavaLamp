@@ -12,13 +12,13 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private BoolEventChannelSO setCursorVisibility;
 	[SerializeField] private LevelInfoSOEventChannelSO sendLevel;
 	[SerializeField] private GameObject loadingScreen;
-	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject startMenu;
 	[SerializeField] private GameObject HUD;
 	[SerializeField] private GameObject levelSuccess;
 	[SerializeField] private GameObject levelFailure;
 	[SerializeField] private GameObject endGame;
-	[SerializeField] private GameObject profileNamePanel;
-	public LevelInfoSO[] levels;
+	[SerializeField] private GameObject confirmNamePanel;
+    public LevelInfoSO[] levels;
 	[SerializeField] private EmployeeData[] profiles;
 	[SerializeField] private string[] profilePaths;
 	
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
 		loadGame();
     }
 	
-	private void saveGame()
+	public void saveGame()
 	{
 		int employeeNumber = currentSession.employeeNumber;
 		string json = JsonUtility.ToJson(currentSession);
@@ -89,7 +89,7 @@ public class LevelManager : MonoBehaviour
 		currentSession = profiles[employeeNumber];
 		if(profiles[employeeNumber].employeeName == "")
 		{
-			profileNamePanel.SetActive(true);
+			confirmNamePanel.SetActive(true);
 		}
 		enableButtons.RaiseEvent();
 		
@@ -131,9 +131,9 @@ public class LevelManager : MonoBehaviour
 		StartCoroutine(PauseBeforeLevelSuccess());
     }
 
-	public void activateMainMenu()
+	public void activateStartMenu()
 	{
-		StartCoroutine(ReturnToMainMenu());
+		StartCoroutine(ReturnToStartMenu());
 	}
 	
 	public void activateNextLevel()
@@ -146,7 +146,7 @@ public class LevelManager : MonoBehaviour
 		StartCoroutine(ContinueToEndGame());
 	}
 	
-	private IEnumerator ReturnToMainMenu()
+	private IEnumerator ReturnToStartMenu()
 	{
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
@@ -156,7 +156,7 @@ public class LevelManager : MonoBehaviour
 			SceneLoader.Instance.UnloadScene("OfficeWorkplace");
 		}
 		yield return null;
-		mainMenu.SetActive(true);
+		startMenu.SetActive(true);
 	}
 	
 	private IEnumerator ContinueToNextLevel()

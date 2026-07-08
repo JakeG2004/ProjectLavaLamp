@@ -38,6 +38,14 @@ public class EndGame : MonoBehaviour
 	
 	public void PressMainMenuButton()
 	{
+		for(int i = 0; i < currentSession.levelBuildChoices.Length; i++)
+		{
+			currentSession.levelBuildChoices[i] = 0;
+		}
+		if (LevelManager.Instance != null)
+        {
+			LevelManager.Instance.saveGame();
+		}
 		triggerMainMenu.RaiseEvent();
 	}
 	
