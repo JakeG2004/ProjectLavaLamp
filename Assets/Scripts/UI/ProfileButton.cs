@@ -5,6 +5,7 @@ public class ProfileButton : MonoBehaviour
 {
 	[SerializeField] private int profileNumber;
 	[SerializeField] private IntEventChannelSO sendProfileNumber;
+	[SerializeField] private IntEventChannelSO setProfilePointer;
 	
 	public void emitProfileNumber(){
 		sendProfileNumber.RaiseEvent(profileNumber);
@@ -20,5 +21,6 @@ public class ProfileButton : MonoBehaviour
 				profileNameText.text = "Empty Profile";
 			}
 		}
+		
 	}
 }

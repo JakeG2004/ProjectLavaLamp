@@ -152,7 +152,7 @@ public class LevelSuccess : MonoBehaviour
 		}
 		else if (adjustedNumber  >= 4 && adjustedNumber  <= 6)
 		{
-			planetName = "Mellago"; 
+			planetName = "Melligo"; 
 			for(int i = 0; i < 3; i++)
 			{
 				GameObject stamp = null;

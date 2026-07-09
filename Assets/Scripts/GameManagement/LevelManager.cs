@@ -8,8 +8,8 @@ using System.Collections.Generic;
 public class LevelManager : MonoBehaviour
 {
 	[SerializeField] private EmployeeDataEventChannelSO sendEmployeeID;
-	[SerializeField] private VoidEventChannelSO enableButtons;
 	[SerializeField] private BoolEventChannelSO setCursorVisibility;
+	[SerializeField] private IntEventChannelSO setProfilePointer;
 	[SerializeField] private LevelInfoSOEventChannelSO sendLevel;
 	[SerializeField] private GameObject loadingScreen;
 	[SerializeField] private GameObject startMenu;
@@ -47,6 +47,49 @@ public class LevelManager : MonoBehaviour
 		loadGame();
     }
 	
+	public void checkProfileSelection()
+	{
+		StartCoroutine(checkProfileSelectionCoroutine());
+	}
+	
+	public IEnumerator checkProfileSelectionCoroutine()
+	{
+		yield return null;
+		if(profiles[0].employeeName != "")
+		{
+			currentSession = profiles[0];
+			setProfilePointer.RaiseEvent(0);
+		}
+		else if(profiles[1].employeeName != "")
+		{
+			currentSession = profiles[1];
+			setProfilePointer.RaiseEvent(1);
+		}
+		else if(profiles[2].employeeName != "")
+		{
+			currentSession = profiles[2];
+			setProfilePointer.RaiseEvent(2);
+		}
+		else if(profiles[3].employeeName != "")
+		{
+			currentSession = profiles[3];
+			setProfilePointer.RaiseEvent(3);
+		}
+		else if(profiles[4].employeeName != "")
+		{
+			currentSession = profiles[4];
+			setProfilePointer.RaiseEvent(4);
+		}
+		else if(profiles[5].employeeName != "")
+		{
+			currentSession = profiles[5];
+			setProfilePointer.RaiseEvent(5);
+		}
+		else
+		{
+			setProfilePointer.RaiseEvent(-1);
+		}
+	}
 	public void saveGame()
 	{
 		int employeeNumber = currentSession.employeeNumber;
@@ -91,7 +134,10 @@ public class LevelManager : MonoBehaviour
 		{
 			confirmNamePanel.SetActive(true);
 		}
-		enableButtons.RaiseEvent();
+		else
+		{
+			setProfilePointer.RaiseEvent(employeeNumber);
+		}
 		
 	}
 	
@@ -100,7 +146,6 @@ public class LevelManager : MonoBehaviour
 		currentSession.employeeName = employeeName;
 		saveGame();
 		sendEmployeeID.RaiseEvent(currentSession);
-		enableButtons.RaiseEvent();
 	}
 	
 	public void deleteEmployee(){
@@ -111,6 +156,17 @@ public class LevelManager : MonoBehaviour
 		profiles[currentSession.employeeNumber] = currentSession;
 		File.Delete(profilePaths[currentSession.employeeNumber]);
 		displayEmployeeIDs();
+	}
+	
+	public void resetEmployee()
+	{
+		currentSession.currentDay = 1;
+		for(int i = 0; i < currentSession.levelBuildChoices.Length; i++)
+		{
+			currentSession.levelBuildChoices[i] = 0;
+		}
+		currentSession.coffeeLevel = 3;
+		currentSession.efficiency = 1000;
 	}
 	
 	public void pushLevel(){
