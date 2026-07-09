@@ -48,7 +48,8 @@ public class Coffee : MonoBehaviour, IUsable
         GameObject emptyCup = Instantiate(emptyCupPrefab, transform.position, transform.rotation);
         emptyCup.transform.localScale = transform.localScale;
         emptyCup.name = emptyCupPrefab.name;
-		SceneManager.MoveGameObjectToScene(emptyCup, SceneManager.GetSceneByName("OfficeWorkplace"));
+        //This line was causing the full cup to fail to destroy itself, instead duplicating empty cups.
+		//SceneManager.MoveGameObjectToScene(emptyCup, SceneManager.GetSceneByName("OfficeWorkplace"));
         Destroy(gameObject);
         }
     }
