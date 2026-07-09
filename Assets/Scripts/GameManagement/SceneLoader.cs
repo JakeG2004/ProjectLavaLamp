@@ -13,7 +13,8 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private string mainSceneName;
 
     public static SceneLoader Instance = null;
-    private void Awake()
+    
+	private void Awake()
     {
         // Singleton functionality.
         if (Instance == null)
