@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 335114521095484718}
   - component: {fileID: 8666655175433048257}
   - component: {fileID: 6138791038757066937}
+  - component: {fileID: -8109088161535243175}
   m_Layer: 3
   m_Name: CMSBox
   m_TagString: Untagged
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99faa6ef036208946ad8d2ca443fc789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpottedCMS: {fileID: 11400000, guid: 0e65ca643202a8e47a42b1fe38ed21b0, type: 2}
   minimumSmashSpeed: 11
   despawnDelay: 3
   despawnTime: 0.5
@@ -332,6 +334,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-8109088161535243175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445593189116435998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfea2e3f750f92046b2e86788d615d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CMS
 --- !u!1 &8137648916405051358
 GameObject:
   m_ObjectHideFlags: 0

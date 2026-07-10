@@ -116,10 +116,8 @@ public class ProfileMenu : MonoBehaviour
 				Transform planetDay = profileDetailPanel.transform.Find("PlanetDay");
 				foreach(Transform child in planetDay)
 				{
-					Debug.Log(planetDay.name);
 					if(child.name == "Planet (TMP)")
 					{
-						Debug.Log("check");
 						TMP_Text planet = child.gameObject.GetComponent<TMP_Text>();
 						string displayPlanet = "Planet: ";
 						if(LevelManager.Instance.currentSession.currentDay <= 3)	

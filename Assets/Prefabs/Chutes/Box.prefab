@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99faa6ef036208946ad8d2ca443fc789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpottedCMS: {fileID: 11400000, guid: 0e65ca643202a8e47a42b1fe38ed21b0, type: 2}
   minimumSmashSpeed: 11
   despawnDelay: 3
   despawnTime: 0.5

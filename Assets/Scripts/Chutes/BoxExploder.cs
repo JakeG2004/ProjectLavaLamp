@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Fracture))]
 public class BoxExploder : MonoBehaviour
 {
+	[SerializeField] private VoidEventChannelSO SpottedCMS;
     [SerializeField] private float minimumSmashSpeed = 15f;
     [SerializeField] private float despawnDelay = 3f;
     [SerializeField] private float despawnTime = 0.5f;
@@ -57,6 +58,10 @@ public class BoxExploder : MonoBehaviour
     {
         InstantiateBoxItems();
 
+		if(gameObject.GetComponent<CMS>() == true)
+		{
+			SpottedCMS.RaiseEvent();
+		}
         boxRigidbody.useGravity = true;
         fracture.CauseFracture();
 
