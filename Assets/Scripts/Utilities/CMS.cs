@@ -11,7 +11,6 @@ public class CMS : MonoBehaviour
     {
         if(this.gameObject.transform.root != this.gameObject.transform && this.gameObject.transform.root.GetComponent<CMS>() == null)
 		{
-			Debug.Log("CMS viral tag");
 			this.gameObject.transform.root.gameObject.AddComponent<CMS>();
 			foreach(Transform child in this.gameObject.transform.root)
 			{
