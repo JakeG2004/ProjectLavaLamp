@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1704216181395138628}
   - component: {fileID: 165309301547646289}
   - component: {fileID: 3992866009347381595}
+  - component: {fileID: -598314700085465262}
+  - component: {fileID: 1983947613256568512}
   - component: {fileID: 1567764719355219843}
   - component: {fileID: 6966887294427427193}
   - component: {fileID: 7447881988006109103}
@@ -29,13 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6820019286654126876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 547.22, y: 238.17, z: -3.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!33 &165309301547646289
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6820019286654126876}
-  m_Mesh: {fileID: -1074483338588176256, guid: fc4ab3ebd6219eb4e88fdcb20c13c631, type: 3}
+  m_Mesh: {fileID: 7906333360744065289, guid: da256c72692c7c145b38465a09d930f3, type: 3}
 --- !u!23 &3992866009347381595
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -93,6 +95,51 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-598314700085465262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820019286654126876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e9dbff22f1cbe489b2406651cb5d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoffeeStack
+  stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
+  emptyCupPrefab: {fileID: 7544416146807603691, guid: f68845f0038d178488b7d8662fd12759, type: 3}
+  requiredItem: 
+  settings: {fileID: 11400000, guid: 550a07fd7d877a444ada2902367f2a50, type: 2}
+  cupLocation: {x: 6, y: 3, z: -27}
+--- !u!114 &1983947613256568512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820019286654126876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcdf3cf03da3cb648a17f3fc5c5fb4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventChannel: {fileID: 11400000, guid: b678fc006b04c4a4eaabca6fff34bf8e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -598314700085465262}
+        m_TargetAssemblyTypeName: CoffeeStack, Assembly-CSharp
+        m_MethodName: SetCurrentItemHeld
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1567764719355219843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,8 +159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.6, z: 1}
-  m_Center: {x: 0.000000059604645, y: -1.275, z: -1.1}
+  m_Size: {x: 0.4, y: 0.4, z: 1}
+  m_Center: {x: -0.575, y: -0.175, z: 0.5}
 --- !u!65 &6966887294427427193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133,8 +180,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.9, z: 1}
-  m_Center: {x: 0.5, y: -1.45, z: 0.35}
+  m_Size: {x: 0.4, y: 0.4, z: 1.15}
+  m_Center: {x: 0, y: 0, z: 0.575}
 --- !u!65 &7447881988006109103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,5 +201,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.8, z: 1}
-  m_Center: {x: -0.5, y: -0.9, z: 1.05}
+  m_Size: {x: 0.4, y: 0.4, z: 0.75}
+  m_Center: {x: 0.02, y: 0.45, z: 0.375}
