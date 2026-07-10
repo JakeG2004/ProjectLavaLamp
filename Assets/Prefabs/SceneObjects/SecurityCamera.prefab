@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 6893840139946072813}
   - component: {fileID: 2968444329853537439}
   - component: {fileID: 343728594858216928}
+  - component: {fileID: 3745274268890322026}
   m_Layer: 3
   m_Name: SecurityCameraBase
   m_TagString: DoorCamera
@@ -462,10 +463,13 @@ MonoBehaviour:
   dayForceSplash: 2
   reActivateTimer: 0f270000b400000096000000780000005a000000460000003c0000003200000028000000
   lookTransitionSpeed: 2
+  lookDownSpeedMultiplier: 3
   pointA: {fileID: 2952298497259828703}
   pointB: {fileID: 208925267419731109}
   archHeight: 3
   moveSpeed: 10
+  degradeEfficiencyRate: 1
+  efficiencySubtract: {fileID: 11400000, guid: b7e18304678309d8698a60df8672de75, type: 2}
 --- !u!65 &6893840139946072813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -535,6 +539,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SecurityCameraFollow, Assembly-CSharp
         m_MethodName: ReceiveTransitionSignal
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3745274268890322026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257725077776436638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 0e65ca643202a8e47a42b1fe38ed21b0, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5396035760417835639}
+        m_TargetAssemblyTypeName: SecurityCameraFollow, Assembly-CSharp
+        m_MethodName: CMSBoxBroken
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

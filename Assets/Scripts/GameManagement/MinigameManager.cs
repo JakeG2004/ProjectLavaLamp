@@ -113,7 +113,7 @@ public class MinigameManager : MonoBehaviour
 
         if(!isAnyAvailableSirens()){
             efficiencySubtract.RaiseEvent(effLossMegaFail);
-            Debug.Log("PAIN AND SUFFERING UPON YE");
+            //Debug.Log("PAIN AND SUFFERING UPON YE");
             return -1;
         }
 

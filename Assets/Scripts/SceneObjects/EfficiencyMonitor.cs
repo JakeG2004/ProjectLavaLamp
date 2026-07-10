@@ -63,17 +63,35 @@ public class EfficiencyMonitor : MonoBehaviour
 
         if(hopper<0)
         {
-            //Debug.Log($"Tried to lower {LevelManager.Instance.currentSession.efficiency} by {transferRate}");
-            LevelManager.Instance.currentSession.efficiency-=transferRate;
-            hopper+=transferRate;
-            //Debug.Log($"New efficiency is {LevelManager.Instance.currentSession.efficiency}");
+            if(LevelManager.Instance.currentSession.efficiency-transferRate>=0)
+            {
+                //Debug.Log($"Tried to lower {LevelManager.Instance.currentSession.efficiency} by {transferRate}");
+                LevelManager.Instance.currentSession.efficiency-=transferRate;
+                hopper+=transferRate;
+                //Debug.Log($"New efficiency is {LevelManager.Instance.currentSession.efficiency}");
+            }
+            else
+            {
+                LevelManager.Instance.currentSession.efficiency = 0;
+                hopper = 0;
+            }
         }
         else if(hopper>0)
-        {
+        {            
+            if(LevelManager.Instance.currentSession.efficiency+transferRate<=1000)
+            {
             //Debug.Log($"Tried to raise {LevelManager.Instance.currentSession.efficiency} by {transferRate}");
             LevelManager.Instance.currentSession.efficiency+=transferRate;
             hopper-=transferRate;
             //Debug.Log($"New efficiency is {LevelManager.Instance.currentSession.efficiency}");
+            }
+            else
+            {
+                LevelManager.Instance.currentSession.efficiency = 1000;
+                hopper = 0;
+            }
+            
+            
         }
 
 
