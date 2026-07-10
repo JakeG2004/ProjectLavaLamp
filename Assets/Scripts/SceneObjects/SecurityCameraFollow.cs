@@ -52,8 +52,15 @@ public class SecurityCameraFollow : MonoBehaviour, IInteractable
     private float[] cumulativeDist;
     private float totalPathLength;
 
+    [Tooltip("Signal for decreasing efficiency score:")]
+    [SerializeField] private int degradeEfficiencyRate = 1;
+    [Tooltip("Value that efficiency will be decreased by once signal is received.")]
+	[SerializeField] private IntEventChannelSO efficiencySubtract;
+
     private void Awake()
     {
+        StopAllCoroutines();
+
         outline = GetComponent<Outline>();
         if (outline == null)
         {
@@ -317,6 +324,31 @@ public class SecurityCameraFollow : MonoBehaviour, IInteractable
 
         // Ensure it hits exactly 0 at the very end
         objectMaterial.SetFloat("_Coffee_amount", 0f);
+    }
+
+
+    public void CMSBoxBroken()
+    {
+        StartCoroutine(DegradeEfficiencyRoutine());
+    }
+
+    IEnumerator DegradeEfficiencyRoutine()
+    {
+        //Set our delay
+        var delay = new WaitForSeconds(1f); 
+        
+        //Yes, this is meant to be an infinite loop
+        while(true)
+        {
+            //This stops it from crashing things, making sure it only happens once per second.
+            yield return delay;
+            
+            // Send signal with amount of sirens active to subtract each second.
+            if(state!=1)
+            {
+                efficiencySubtract.RaiseEvent(degradeEfficiencyRate);
+            }
+        }
     }
 
 }
