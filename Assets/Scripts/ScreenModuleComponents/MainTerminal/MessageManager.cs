@@ -16,7 +16,8 @@ public class MessageManager : MonoBehaviour, IScreen
 
     private void Awake()
     {
-        DeactivateScreen();
+        //Commented out due to design decision to start with email screen open.
+        //DeactivateScreen();
     }
 
     public void ActivateScreen()
