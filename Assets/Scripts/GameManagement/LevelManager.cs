@@ -173,7 +173,8 @@ public class LevelManager : MonoBehaviour
 		sendLevel.RaiseEvent(levels[currentSession.currentDay - 1]);
 	}
 	
-	public void levelComplete(){
+	public void levelComplete()
+	{
 		if(currentSession.currentDay != levels.Length)
 		{
 			currentSession.currentDay++;
@@ -186,7 +187,22 @@ public class LevelManager : MonoBehaviour
 		InputSystem.actions.FindActionMap("Player").Disable();
 		StartCoroutine(PauseBeforeLevelSuccess());
     }
-
+	
+	public void levelIncomplete()
+	{
+		for(int i = 0; i < levels.Length; i++)
+		{
+			if(profiles[i].employeeNumber == currentSession.employeeNumber)
+			{
+				currentSession.efficiency = profiles[i].efficiency; 
+			}
+		}
+		HUD.SetActive(false);
+		setCursorVisibility.RaiseEvent(true);
+		InputSystem.actions.FindActionMap("Player").Disable();
+		StartCoroutine(PauseBeforeLevelFailure());
+	}
+	
 	public void activateStartMenu()
 	{
 		StartCoroutine(ReturnToStartMenu());
@@ -206,6 +222,7 @@ public class LevelManager : MonoBehaviour
 	{
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
+		levelFailure.SetActive(false);
 		endGame.SetActive(false);
 		if(SceneLoader.Instance.IsSceneLoaded("OfficeWorkplace") == true)
 		{
@@ -219,6 +236,7 @@ public class LevelManager : MonoBehaviour
 	{
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
+		levelFailure.SetActive(false);
 		SceneLoader.Instance.UnloadScene("OfficeWorkplace");
 		yield return null;
 		SceneLoader.Instance.LoadScene("OfficeWorkplace");
@@ -230,6 +248,7 @@ public class LevelManager : MonoBehaviour
 	{
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
+		levelFailure.SetActive(false);
 		SceneLoader.Instance.UnloadScene("OfficeWorkplace");
 		yield return null;
 		endGame.SetActive(true);
@@ -239,6 +258,12 @@ public class LevelManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.5f);
 		levelSuccess.SetActive(true);
+	}
+	
+	private IEnumerator PauseBeforeLevelFailure()
+	{
+		yield return new WaitForSeconds(0.5f);
+		levelFailure.SetActive(true);
 	}
 	
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CoffeeStack : MonoBehaviour, IInteractable
 {
@@ -46,6 +47,7 @@ public class CoffeeStack : MonoBehaviour, IInteractable
         stopInteraction.RaiseEvent();
 		GameObject emptyCup = Instantiate(emptyCupPrefab, cupLocation, Quaternion.identity);
 		emptyCup.name = emptyCupPrefab.name;
+		SceneManager.MoveGameObjectToScene(emptyCup, SceneManager.GetSceneByName("OfficeWorkplace"));
     }
 	
 	public void StopInteract()

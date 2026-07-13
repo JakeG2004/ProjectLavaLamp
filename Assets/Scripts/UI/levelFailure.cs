@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class LevelSuccess : MonoBehaviour
+public class levelFailure : MonoBehaviour
 {
     private EmployeeData currentSession;
 	private GameObject planetNameObject;
@@ -10,14 +10,13 @@ public class LevelSuccess : MonoBehaviour
 	private GameObject stamp1;
 	private GameObject stamp2;
 	private GameObject stamp3;
-	private TMP_Text nextButton;
 	private int levelNumber;
 	private string planetName;
 	[SerializeField] private Sprite stampHPC;
 	[SerializeField] private Sprite stampCMS;
+	[SerializeField] private Sprite stampFail;
 	[SerializeField] private VoidEventChannelSO triggerMainMenu;
     [SerializeField] private VoidEventChannelSO triggerNextLevel;
-	[SerializeField] private VoidEventChannelSO triggerEndGame;
 	[SerializeField] private VoidEventChannelSO startGame;
 	
 	public void OnEnable()
@@ -44,29 +43,17 @@ public class LevelSuccess : MonoBehaviour
 			{
 				stamp3 = child.gameObject;
 			}
-			if(child.name == "NextLevel")
-			{
-				nextButton = child.gameObject.GetComponentInChildren<TMP_Text>();
-			}
 		}
         if (LevelManager.Instance != null && LevelManager.Instance.currentSession != null)
         {
             currentSession = LevelManager.Instance.currentSession;
-			setLevelSuccessScreen();
+			setLevelFailureScreen();
         }
     }
 	
-	public void setLevelSuccessScreen()
+	public void setLevelFailureScreen()
 	{
-		if(LevelManager.Instance.currentSession.currentDay == 1) //It turned over due to the game looping but they just completed the end
-		{
-			levelNumber = LevelManager.Instance.levels.Length - 1;
-			nextButton.text = "Continue";
-		}else
-		{
-			levelNumber = LevelManager.Instance.currentSession.currentDay - 2;
-			nextButton.text = "Next Level";
-		}
+		levelNumber = LevelManager.Instance.currentSession.currentDay - 1;
 		LevelInfoSO currentLevel = LevelManager.Instance.levels[levelNumber];
 		setStamps();
 		string buildName = currentLevel.buildName;
@@ -89,19 +76,10 @@ public class LevelSuccess : MonoBehaviour
 		triggerMainMenu.RaiseEvent();
 	}
 	
-	public void PressNextLevelButton()
+	public void PressRetryButton()
 	{
-		if(LevelManager.Instance.currentSession.currentDay == 1)
-		{
-			triggerEndGame.RaiseEvent();
-		}
-		else
-		{
-			startGame.RaiseEvent();
-			triggerNextLevel.RaiseEvent();
-
-		}
-		
+		startGame.RaiseEvent();
+		triggerNextLevel.RaiseEvent();
 	}
 	
 	private void setStamps()
@@ -139,6 +117,11 @@ public class LevelSuccess : MonoBehaviour
 					stamp.GetComponent<Image>().sprite = null;
 					stamp.GetComponent<Image>().color = Color.clear;
 				}
+				if(levelNumber == i)
+				{
+					stamp.GetComponent<Image>().sprite = stampCMS;
+					stamp.GetComponent<Image>().color = Color.red;
+				}
 			}
 			
 		}
@@ -175,6 +158,11 @@ public class LevelSuccess : MonoBehaviour
 					stamp.GetComponent<Image>().sprite = null;
 					stamp.GetComponent<Image>().color = Color.clear;
 				}
+				if(levelNumber == (i + 3))
+				{
+					stamp.GetComponent<Image>().sprite = stampCMS;
+					stamp.GetComponent<Image>().color = Color.red;
+				}
 			}
 		}
 		else if (adjustedNumber  >= 7 && adjustedNumber  <= 9)
@@ -208,6 +196,11 @@ public class LevelSuccess : MonoBehaviour
 				else{
 					stamp.GetComponent<Image>().sprite = null;
 					stamp.GetComponent<Image>().color = Color.clear;
+				}
+				if(levelNumber == (i + 6))
+				{
+					stamp.GetComponent<Image>().sprite = stampCMS;
+					stamp.GetComponent<Image>().color = Color.red;
 				}
 			}
 		}
