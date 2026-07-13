@@ -23,7 +23,14 @@ public class ScreenManager : MonoBehaviour
     public void NextScreen()
     {
         ChangeScreen((activeScreenIndex + 1) % screens.Length);
-        AudioManager.Instance.PlaySound(MixerType.SFX, SoundType.ScreenTransition, 0.1f, transform.position);
+        if(AudioManager.Instance!=null)
+        {
+            AudioManager.Instance.PlaySound(MixerType.SFX, SoundType.ScreenTransition, 0.1f, transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("ScreenManager couldn't find AudioManager!");
+        }
     }
 
     public void StopTerminalInteraction()
