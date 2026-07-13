@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private GameObject endGame;
 	[SerializeField] private GameObject confirmNamePanel;
     public LevelInfoSO[] levels;
-	[SerializeField] private EmployeeData[] profiles;
+	public EmployeeData[] profiles;
 	[SerializeField] private string[] profilePaths;
 	
 	public EmployeeData currentSession;
@@ -265,5 +265,4 @@ public class LevelManager : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		levelFailure.SetActive(true);
 	}
-	
 }

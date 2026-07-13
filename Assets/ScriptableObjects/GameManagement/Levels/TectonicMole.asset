@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ab9e6aff9cf6340a918f9fc96d9b14, type: 3}
+  m_Name: TectonicMole
+  m_EditorClassIdentifier: Assembly-CSharp::LevelInfoSO
+  packages:
+  - {fileID: 11400000, guid: bb3a3edaa8e05f94090987bcf2013373, type: 2}
+  - {fileID: 11400000, guid: e539f2e9fc9a8ca49a10076551dc9494, type: 2}
+  - {fileID: 11400000, guid: bc0ec3dda43044e43b6cd6afe1175dc0, type: 2}
+  - {fileID: 11400000, guid: 55b1d13e59380a74fa482f24ca2b976c, type: 2}
+  CMSpackage: {fileID: 11400000, guid: baf54fae2b92dcb4bbf3b5c15140ab9a, type: 2}
+  buildName: TectonicM.O.L.E.
+  buildInstructions: {fileID: 11400000, guid: a65f75f5feb226041888f81b65169d82, type: 2}

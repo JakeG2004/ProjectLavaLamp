@@ -24,6 +24,7 @@ public class ProfileMenu : MonoBehaviour
 	[SerializeField] private VoidEventChannelSO startGame;
     [SerializeField] private GameObject HUD;
     [SerializeField] private string sceneName = "OfficeWorkplace";
+	private EmployeeData previousSession;
 	
     private void OnEnable()
     {
@@ -57,6 +58,7 @@ public class ProfileMenu : MonoBehaviour
 
     public void ConfirmProfileName()
     {
+		previousSession = LevelManager.Instance.currentSession;
 		TMP_InputField profileField = confirmNamePanel.GetComponentInChildren<TMP_InputField>();
 		sendProfileName.RaiseEvent(profileField.text);
 		displayProfile(LevelManager.Instance.currentSession.employeeNumber);
@@ -66,6 +68,7 @@ public class ProfileMenu : MonoBehaviour
 
     public void CancelProfileName()
     {
+		LevelManager.Instance.currentSession = previousSession;
         confirmNamePanel.SetActive(false);
     }
 	

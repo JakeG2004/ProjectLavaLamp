@@ -69,6 +69,8 @@ public class levelFailure : MonoBehaviour
 		}
 		planetNameObject.GetComponent<TMP_Text>().text = planetName;
 		buildNameObject.GetComponent<TMP_Text>().text = spaceName;
+		//reset the currentSession to mimic what it looked like before the level was played
+		LevelManager.Instance.currentSession = LevelManager.Instance.profiles[LevelManager.Instance.currentSession.employeeNumber];
 	}
 	
 	public void PressMainMenuButton()
@@ -119,8 +121,8 @@ public class levelFailure : MonoBehaviour
 				}
 				if(levelNumber == i)
 				{
-					stamp.GetComponent<Image>().sprite = stampCMS;
-					stamp.GetComponent<Image>().color = Color.red;
+					stamp.GetComponent<Image>().sprite = stampFail;
+					stamp.GetComponent<Image>().color = new Color(1f, 16f/255f, 112/255f, 1f);
 				}
 			}
 			
@@ -160,8 +162,8 @@ public class levelFailure : MonoBehaviour
 				}
 				if(levelNumber == (i + 3))
 				{
-					stamp.GetComponent<Image>().sprite = stampCMS;
-					stamp.GetComponent<Image>().color = Color.red;
+					stamp.GetComponent<Image>().sprite = stampFail;
+					stamp.GetComponent<Image>().color = new Color(1f, 16f/255f, 112/255f, 1f);
 				}
 			}
 		}
@@ -199,8 +201,8 @@ public class levelFailure : MonoBehaviour
 				}
 				if(levelNumber == (i + 6))
 				{
-					stamp.GetComponent<Image>().sprite = stampCMS;
-					stamp.GetComponent<Image>().color = Color.red;
+					stamp.GetComponent<Image>().sprite = stampFail;
+					stamp.GetComponent<Image>().color = new Color(1f, 16f/255f, 112/255f, 1f);
 				}
 			}
 		}

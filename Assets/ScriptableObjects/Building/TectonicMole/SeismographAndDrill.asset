@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801ce67e5cf4ba4aa243e657c2e0838, type: 3}
+  m_Name: SeismographAndDrill
+  m_EditorClassIdentifier: Assembly-CSharp::BoxItemsSO
+  explosiveness: 0.5
+  items:
+  - gameObject: {fileID: 3518563070565352164, guid: 0bfe8ceb59ef7ff49b9761a64c092ebf, type: 3}
+    count: 1
+  - gameObject: {fileID: 7621566057420729089, guid: ffc8c8dd1c0f22c4f9a5015678bc33fb, type: 3}
+    count: 1
+  - gameObject: {fileID: 6415960599924601478, guid: c778ebf8b101c3a4c9cd905b64a68274, type: 3}
+    count: 3

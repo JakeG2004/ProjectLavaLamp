@@ -155,10 +155,11 @@ public class BuildItemConstructor : MonoBehaviour
         voidSubscriber.SetChannelAndResponse(itemPlaced, voidResponse);
 
 		UnityEvent highlightResponse = new();
-		UnityEvent unhighlightResponse = new();
 		highlightResponse.AddListener(highlight.highlight);
-		unhighlightResponse.AddListener(highlight.unhighlight);
 		voidHighlight.SetChannelAndResponse(startHighlight, highlightResponse);
+		
+		UnityEvent unhighlightResponse = new();
+		unhighlightResponse.AddListener(highlight.unhighlight);
 		voidUnhighlight.SetChannelAndResponse(stopHighlight, unhighlightResponse);
 		
         // Properly serialize the response fields inside the prefab so they show in the inspector.
@@ -176,6 +177,16 @@ public class BuildItemConstructor : MonoBehaviour
         (
             voidResponse, 
             pickupItem.UpdateChildrenColliders
+        );
+		UnityEditor.Events.UnityEventTools.AddVoidPersistentListener
+        (
+            highlightResponse, 
+            highlight.highlight
+        );
+		UnityEditor.Events.UnityEventTools.AddVoidPersistentListener
+        (
+            unhighlightResponse, 
+            highlight.unhighlight
         );
     }
 
