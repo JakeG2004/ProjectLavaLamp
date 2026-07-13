@@ -35,16 +35,16 @@ public class EfficiencyMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check to make sure efficiency is above 0
-        if(LevelManager.Instance.currentSession.efficiency<=0)
-        {
-            lostGame.RaiseEvent();
-        }
-
         //Make sure we don't touch anything if we are locked out by a level ended state
         if(lockOut)
         {
             return;
+        }
+
+        //Check to make sure efficiency is above 0
+        if(LevelManager.Instance.currentSession.efficiency<=0)
+        {
+            lostGame.RaiseEvent();
         }
 
         //Set transfer rate based on how large the hopper is, so that we can accelerate it when the difference is large.
