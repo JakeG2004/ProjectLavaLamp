@@ -211,6 +211,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1070731588911975893, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070731588911975893, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070731588911975893, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070731588911975893, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1423667071326518691, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 388.1728
@@ -259,6 +275,38 @@ PrefabInstance:
       propertyPath: profileMenu
       value: 
       objectReference: {fileID: 2092509652}
+    - target: {fileID: 8129103805337788955, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129103805337788955, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129103805337788955, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129103805337788955, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445450600147851852, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445450600147851852, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445450600147851852, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445450600147851852, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8513504773870876809, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
       propertyPath: m_Name
       value: StartMenu
