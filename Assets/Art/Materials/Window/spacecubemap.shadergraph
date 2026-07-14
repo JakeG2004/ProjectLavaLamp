@@ -26,6 +26,9 @@
         },
         {
             "m_Id": "2c1b08915cb84bc3bb9d506a0115c976"
+        },
+        {
+            "m_Id": "172b0589abd7465591bab949a387af03"
         }
     ],
     "m_Keywords": [],
@@ -1435,6 +1438,43 @@
         "m_SerializedCubemap": "{\"cubemap\":{\"fileID\":8900000,\"guid\":\"4f227a01d35a4c545b44df79371d45c5\",\"type\":3}}",
         "m_Guid": ""
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "172b0589abd7465591bab949a387af03",
+    "m_Guid": {
+        "m_GuidSerialized": "53596d8a-7af6-41fe-8f31-e1e3579d8ea6"
+    },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
+    "m_Name": "Texture2D",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Texture2D",
+    "m_DefaultReferenceName": "_Texture2D",
+    "m_OverrideReferenceName": "_MainTex",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_PerRendererData": false,
+    "m_customAttributes": [],
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "useTexelSize": true,
+    "isHDR": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -3775,7 +3815,7 @@
     "m_ObjectId": "88adfb686d024986b21569a50bfd94fd",
     "m_Title": "Space cubemap",
     "m_Position": {
-        "x": -4400.00048828125,
+        "x": -4400.0,
         "y": 153.0
     }
 }
@@ -4903,7 +4943,7 @@
     "m_ObjectId": "c8d4b915d55447d8a9376dae6bc8d76a",
     "m_Title": "Planet Image",
     "m_Position": {
-        "x": -2894.000244140625,
+        "x": -2894.0,
         "y": 729.0
     }
 }
@@ -5621,7 +5661,7 @@
     "m_ObjectId": "f6a436c79cf44037afab4c76ca6144c8",
     "m_Title": "Fake Planet Parlax",
     "m_Position": {
-        "x": -4214.00048828125,
+        "x": -4214.0,
         "y": 743.0
     }
 }
@@ -5771,6 +5811,9 @@
         },
         {
             "m_Id": "2c1b08915cb84bc3bb9d506a0115c976"
+        },
+        {
+            "m_Id": "172b0589abd7465591bab949a387af03"
         }
     ]
 }

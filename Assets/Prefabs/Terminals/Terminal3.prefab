@@ -3806,6 +3806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MatchingManager
   startMatchingInteract: {fileID: 11400000, guid: 3b6dc47944d04034c96464f29ca5ae81, type: 2}
   stopInteract: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
+  Terminal3SirenStop: {fileID: 11400000, guid: 0fba5f89468edc446b6f875c15cd0794, type: 2}
   offScreen: {fileID: 6167568659330480762}
   screenShape: {fileID: 8887108725095486980}
   shapeHolder: {fileID: 1605628280450593214}

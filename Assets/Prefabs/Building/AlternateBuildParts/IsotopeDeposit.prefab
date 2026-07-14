@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 5442446829880739126}
   - component: {fileID: 5938390821583461000}
   m_Layer: 3
-  m_Name: ClusterBomb
+  m_Name: IsotopeDeposit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 6884617085553479391}
   - component: {fileID: 4675967594927124453}
   m_Layer: 3
-  m_Name: ClusterBombCollider
+  m_Name: IsotopeDepositCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8640061787221664958}
   m_Layer: 3
-  m_Name: ClusterBombPlacementNode
+  m_Name: IsotopeDepositPlacementNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
   defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
-  requiredItem: ClusterBomb
+  requiredItem: IsotopeDeposit
   placementContainer: {fileID: 1326872272708697962}
   Settings: {fileID: 11400000, guid: 9fbe56bc51b931042946dc6e72e50fa3, type: 2}
   scaleEntireObject: 0

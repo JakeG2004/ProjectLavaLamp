@@ -7,6 +7,7 @@ public class MatchingManager : MonoBehaviour
 {
 	[SerializeField] private VoidEventChannelSO startMatchingInteract;
     [SerializeField] private VoidEventChannelSO stopInteract;
+	[SerializeField] private VoidEventChannelSO Terminal3SirenStop;
 	[SerializeField] private GameObject offScreen;
 	[SerializeField] private GameObject screenShape;
 	[SerializeField] private GameObject shapeHolder;
@@ -242,6 +243,7 @@ public class MatchingManager : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		holderDisplay.color = Color.black;
 		TurnButtonsOff(true);
+		Terminal3SirenStop.RaiseEvent();
 		StopMatchingInteraction();
 	}
 	

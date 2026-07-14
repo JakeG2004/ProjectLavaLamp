@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Damage_Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 90dac72da5d3dfe4880568366168c346, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -136,6 +136,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2bc30af6a23b29a42a6bac94dff12618, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2D_Array:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -160,6 +164,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _Blend_smoothness: 0.454
+    - _Boolean: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -190,7 +195,7 @@ Material:
     - _Metallic: 0
     - _Metallic_Mask_Contrast: 0.183
     - _Non_metal_noise_scale: 47.5
-    - _Normal_Image_Strength: -0.8
+    - _Normal_Image_Strength: 0.62
     - _Normal_Mask_Contrast: 0.23
     - _Normal_Noise_size: 494.84
     - _Normal_Strength: 1
@@ -210,7 +215,7 @@ Material:
     - _Surface: 0
     - _Use_AO_map_as_base: 1
     - _Use_Emissive: 0
-    - _Use_Normal_Image: 0
+    - _Use_Normal_Image: 1
     - _Use_Terminal_Shader: 0
     - _Use_Terminal_SubGraph: 0
     - _Use_emmissive_noise: 0
