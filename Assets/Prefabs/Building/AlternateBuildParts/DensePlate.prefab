@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6055701074051980760}
   - component: {fileID: 964680351579703036}
   m_Layer: 3
-  m_Name: PlateCollider
+  m_Name: DensePlateCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1089,7 +1089,7 @@ GameObject:
   - component: {fileID: -8571193228159929821}
   - component: {fileID: 3442543671813118694}
   m_Layer: 3
-  m_Name: Plate
+  m_Name: DensePlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

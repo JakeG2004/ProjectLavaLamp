@@ -7957,11 +7957,11 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Ambent Occulsion",
+    "m_Name": "Occlusion",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Ambent Occulsion",
-    "m_DefaultReferenceName": "_Ambent_Occulsion",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "Occlusion",
+    "m_DefaultReferenceName": "_Occlusion",
+    "m_OverrideReferenceName": "_OcclusionMap",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -8270,7 +8270,7 @@
     "m_Title": "Metal Color ",
     "m_Position": {
         "x": -1788.0,
-        "y": -3542.999755859375
+        "y": -3543.0
     }
 }
 
@@ -10977,11 +10977,11 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Emissive Map",
+    "m_Name": "Emission",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Emissive Map",
-    "m_DefaultReferenceName": "_Emissive_Map",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "Emission",
+    "m_DefaultReferenceName": "_Emission",
+    "m_OverrideReferenceName": "_EmissionMap",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -12400,7 +12400,7 @@
     "m_ObjectId": "45f69606ddfa4d528983cb854947a269",
     "m_Title": "Metallic controls",
     "m_Position": {
-        "x": -621.0004272460938,
+        "x": -621.0,
         "y": 201.0
     }
 }
@@ -12935,7 +12935,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "4ca55f3079414a2fbd925a08524cd451",
     "m_Id": 0,
-    "m_DisplayName": "Base Map",
+    "m_DisplayName": "BaseMap",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -14794,7 +14794,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "5c0e8a1da3bd47a7895c72490d36e47c",
     "m_Id": 0,
-    "m_DisplayName": "Emissive Map",
+    "m_DisplayName": "Emission",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -16167,11 +16167,11 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Metallic Map",
+    "m_Name": "Metallic",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Metallic Map",
-    "m_DefaultReferenceName": "_Metallic_Map",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "Metallic",
+    "m_DefaultReferenceName": "_Metallic",
+    "m_OverrideReferenceName": "_MetallicGlossMap",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -16215,7 +16215,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "6c649475394f4038ae7ef439e49c9eda",
     "m_Id": 0,
-    "m_DisplayName": "Normal Map",
+    "m_DisplayName": "Damage Normal",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -16246,7 +16246,7 @@
     "m_Title": "Damage Overlay",
     "m_Position": {
         "x": 1275.0,
-        "y": -96.999755859375
+        "y": -97.0
     }
 }
 
@@ -17421,10 +17421,10 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Base Map",
+    "m_Name": "BaseMap",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Base Map",
-    "m_DefaultReferenceName": "_Base_Map",
+    "m_RefNameGeneratedByDisplayName": "BaseMap",
+    "m_DefaultReferenceName": "_BaseMap",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -18171,7 +18171,7 @@
     "m_Title": "Clean textures",
     "m_Position": {
         "x": -2760.0,
-        "y": -1485.999755859375
+        "y": -1486.0
     }
 }
 
@@ -18231,8 +18231,8 @@
     "m_ObjectId": "7b94fac6db234228a81a84beac89086f",
     "m_Title": "Normal Gen",
     "m_Position": {
-        "x": -2893.999755859375,
-        "y": -26.999990463256837
+        "x": -2894.0,
+        "y": -27.0
     }
 }
 
@@ -19148,11 +19148,11 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Normal",
+    "m_Name": "Normal Map",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Normal",
-    "m_DefaultReferenceName": "_Normal",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "Normal Map",
+    "m_DefaultReferenceName": "_Normal_Map",
+    "m_OverrideReferenceName": "_BumpMap",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -20556,7 +20556,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Emissive color",
     "m_DefaultReferenceName": "_Emissive_color",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_EmissionColor",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -20909,6 +20909,20 @@
         "w": 0.0
     },
     "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BooleanMaterialSlot",
+    "m_ObjectId": "93807079c306450695ce1b607323685e",
+    "m_Id": -1757820169,
+    "m_DisplayName": "IsInput",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_IsInput",
+    "m_StageCapability": 2,
+    "m_Value": false,
+    "m_DefaultValue": false
 }
 
 {
@@ -21767,7 +21781,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "998e6637d3de488581a252e628742acb",
     "m_Id": 0,
-    "m_DisplayName": "Normal",
+    "m_DisplayName": "Normal Map",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -22400,7 +22414,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "9fe00d2c5e7547e8967fb3509fdbd807",
     "m_Id": 0,
-    "m_DisplayName": "Metallic Map",
+    "m_DisplayName": "Metallic",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -22694,8 +22708,8 @@
     "m_ObjectId": "a2be72e7538143968e3778260f462770",
     "m_Title": "Emisive controls",
     "m_Position": {
-        "x": -1176.000244140625,
-        "y": 996.9999389648438
+        "x": -1176.0,
+        "y": 997.0
     }
 }
 
@@ -24525,6 +24539,9 @@
             "m_Id": "aea6693ab3144071bc342ae5971557f2"
         },
         {
+            "m_Id": "93807079c306450695ce1b607323685e"
+        },
+        {
             "m_Id": "1de54fcdd4de4562b9bea3897028875d"
         },
         {
@@ -24552,12 +24569,14 @@
     "m_PropertyGuids": [
         "70e9d15a-16bb-4fa9-bbfa-94f0640a557a",
         "857b5792-e020-4ae0-9d6a-d7a94a57ecfb",
-        "12af668c-d062-422e-bd9c-6b3a9175791f"
+        "12af668c-d062-422e-bd9c-6b3a9175791f",
+        "a5d67d4f-3727-45f7-a8dd-e8e6375df091"
     ],
     "m_PropertyIds": [
         -1249822914,
         -1650423195,
-        1972592578
+        1972592578,
+        -1757820169
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
@@ -25621,7 +25640,7 @@
     "m_ObjectId": "c343c82bb58e452185377fc43b7857a3",
     "m_Title": "AO Controls",
     "m_Position": {
-        "x": -829.000244140625,
+        "x": -829.0,
         "y": 1420.0
     }
 }
@@ -27135,10 +27154,10 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Normal Map",
+    "m_Name": "Damage Normal",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Normal Map",
-    "m_DefaultReferenceName": "_Normal_Map",
+    "m_RefNameGeneratedByDisplayName": "Damage Normal",
+    "m_DefaultReferenceName": "_Damage_Normal",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -27724,10 +27743,10 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Smothness",
+    "m_Name": "Smoothness",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Smothness",
-    "m_DefaultReferenceName": "_Smothness",
+    "m_RefNameGeneratedByDisplayName": "Smoothness",
+    "m_DefaultReferenceName": "_Smoothness",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -30001,8 +30020,8 @@
     "m_ObjectId": "edf6fb50e5cd4bd8b8cc1bcdb807acca",
     "m_Title": "Non metal color",
     "m_Position": {
-        "x": -1292.000244140625,
-        "y": -2195.999755859375
+        "x": -1292.0,
+        "y": -2196.0
     }
 }
 
@@ -31714,7 +31733,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "fb0093adc974478e99b555ced955133d",
     "m_Id": 0,
-    "m_DisplayName": "Smothness",
+    "m_DisplayName": "Smoothness",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -31837,7 +31856,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "fc2f8d2045c44bd3bda81ea2941fff0b",
     "m_Id": 0,
-    "m_DisplayName": "Ambent Occulsion",
+    "m_DisplayName": "Occlusion",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
