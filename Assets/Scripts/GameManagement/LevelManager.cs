@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private LevelInfoSOEventChannelSO sendLevel;
 	[SerializeField] private GameObject loadingScreen;
 	[SerializeField] private GameObject startMenu;
+	[SerializeField] private GameObject menuButtons;
+	[SerializeField] private GameObject menuLogo;
 	[SerializeField] private GameObject HUD;
 	[SerializeField] private GameObject levelSuccess;
 	[SerializeField] private GameObject levelFailure;
@@ -190,7 +192,7 @@ public class LevelManager : MonoBehaviour
 	
 	public void levelIncomplete()
 	{
-		for(int i = 0; i < levels.Length; i++)
+		for(int i = 0; i < profiles.Length; i++)
 		{
 			if(profiles[i].employeeNumber == currentSession.employeeNumber)
 			{
@@ -224,12 +226,16 @@ public class LevelManager : MonoBehaviour
 		levelSuccess.SetActive(false);
 		levelFailure.SetActive(false);
 		endGame.SetActive(false);
+		Animator buttonAnimator = menuButtons.GetComponent<Animator>();
+		Animator logoAnimator = menuLogo.GetComponent<Animator>();
 		if(SceneLoader.Instance.IsSceneLoaded("OfficeWorkplace") == true)
 		{
 			SceneLoader.Instance.UnloadScene("OfficeWorkplace");
 		}
 		yield return null;
 		startMenu.SetActive(true);
+		buttonAnimator.SetTrigger("Return");
+		logoAnimator.SetTrigger("Return");
 	}
 	
 	private IEnumerator ContinueToNextLevel()

@@ -124,6 +124,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6050516590045831335, guid: ce77e790243f1904195776d63062d87c, type: 3}
   m_PrefabInstance: {fileID: 4676493124521686234}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &369809577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6273211329086866200, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+  m_PrefabInstance: {fileID: 466140734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &464045915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1966,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3430475673240379160, guid: 4b10cb10258f52846a811f9b2cbcb4d9, type: 3}
   m_PrefabInstance: {fileID: 1031636563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1703779867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5914714598326517690, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
+  m_PrefabInstance: {fileID: 466140734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804465608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513504773870876809, guid: f7dbb7567a1d9b24aa091a87bd60b51a, type: 3}
@@ -2062,9 +2072,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 584957303}
     - target: {fileID: 2149403798245145077, guid: 1e4faa1445fc71d4e81da8791000f2e7, type: 3}
+      propertyPath: menuLogo
+      value: 
+      objectReference: {fileID: 369809577}
+    - target: {fileID: 2149403798245145077, guid: 1e4faa1445fc71d4e81da8791000f2e7, type: 3}
       propertyPath: startMenu
       value: 
       objectReference: {fileID: 1804465608}
+    - target: {fileID: 2149403798245145077, guid: 1e4faa1445fc71d4e81da8791000f2e7, type: 3}
+      propertyPath: menuButtons
+      value: 
+      objectReference: {fileID: 1703779867}
     - target: {fileID: 2149403798245145077, guid: 1e4faa1445fc71d4e81da8791000f2e7, type: 3}
       propertyPath: levelFailure
       value: 
@@ -4307,9 +4325,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2772109191219197231, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
+      propertyPath: menuLogo
+      value: 
+      objectReference: {fileID: 369809577}
+    - target: {fileID: 2772109191219197231, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
       propertyPath: startMenu
       value: 
       objectReference: {fileID: 1804465608}
+    - target: {fileID: 2772109191219197231, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
+      propertyPath: menuButtons
+      value: 
+      objectReference: {fileID: 1703779867}
     - target: {fileID: 2772109191219197231, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
       propertyPath: optionsMenu
       value: 
