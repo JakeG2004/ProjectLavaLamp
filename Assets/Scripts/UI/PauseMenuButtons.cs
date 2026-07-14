@@ -8,6 +8,8 @@ public class PauseMenuButtons : MonoBehaviour
     [SerializeField] private GameObject currentMenu;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject startMenu;
+	[SerializeField] private GameObject menuButtons;
+	[SerializeField] private GameObject menuLogo;
     [SerializeField] private PauseMenuManager pauseMenuManager;
     [SerializeField] private GameObject confirmStartMenuPanel;
     [SerializeField] private GameObject loadingScreen;
@@ -44,7 +46,12 @@ public class PauseMenuButtons : MonoBehaviour
 		SceneLoader.Instance.UnloadScene(sceneName);
         yield return null;
         UnpauseGame();
+		Animator buttonAnimator = menuButtons.GetComponent<Animator>();
+		Animator logoAnimator = menuLogo.GetComponent<Animator>();
+		Time.timeScale = 1f;
         startMenu.SetActive(true);
+		buttonAnimator.SetTrigger("Return");
+		logoAnimator.SetTrigger("Return");
 	}
 	
     public void CancelStartMenuLoad()
