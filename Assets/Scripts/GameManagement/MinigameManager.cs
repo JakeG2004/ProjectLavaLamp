@@ -31,6 +31,9 @@ public class MinigameManager : MonoBehaviour
     // terminalSirensAreActive[0] is terminal 2, terminalSirensAreActive[1] is terminal 3...
     bool[] terminalSirensAreActive = {false,false,false,false};
 
+    bool hasGuaranteedNewMinigame = false;
+    int guaranteedNewMinigame = -1;
+
 
 
     // Awake is called when object is made active
@@ -58,6 +61,33 @@ public class MinigameManager : MonoBehaviour
             if(currentSession.currentDay!=0 && 
                     DayExpectedTriggerWait.Length >= currentSession.currentDay)
             {
+                //If there's a new minigame today, setup so it will always trigger first.
+                if(currentSession.currentDay==dayEnableMinigame1)
+                {
+                    guaranteedNewMinigame=0;
+                    hasGuaranteedNewMinigame=true;
+                }
+                else if(currentSession.currentDay==dayEnableMinigame2)
+                {
+                    guaranteedNewMinigame=1;
+                    hasGuaranteedNewMinigame=true;
+                }
+                else if(currentSession.currentDay==dayEnableMinigame3)
+                {
+                    guaranteedNewMinigame=2;
+                    hasGuaranteedNewMinigame=true;
+                }
+                else if(currentSession.currentDay==dayEnableMinigame4)
+                {
+                    guaranteedNewMinigame=3;
+                    hasGuaranteedNewMinigame=true;
+                }
+                else
+                {
+                    guaranteedNewMinigame=-1;
+                    hasGuaranteedNewMinigame=false;
+                }
+
                 StartCoroutine(DegradeEfficiencyRoutine());
                 //Actually start the sequence, starting with the day's default timer
                 Invoke("nextTriggerTimer", DayExpectedTriggerWait[currentSession.currentDay-1]);
@@ -76,7 +106,17 @@ public class MinigameManager : MonoBehaviour
             //THIS WILL NEED TO ACCOUNT FOR THE DAY WE'RE ON TO EXCLUDE UNLOCKING GAMES EARLY
             int nextGame = 0;
 
-            nextGame = findNextTriggerableMinigame();
+            //If there's a new minigame today, trigger it first.
+            if(hasGuaranteedNewMinigame)
+            {
+                nextGame = guaranteedNewMinigame;
+                hasGuaranteedNewMinigame = false;
+            }
+            else//Default case of randomization
+            {
+                nextGame = findNextTriggerableMinigame();
+            }
+
 
 
             //Trigger corresponding event with sirenChannels[nextGame]
@@ -143,7 +183,7 @@ public class MinigameManager : MonoBehaviour
     bool isAnyAvailableSirens(){
         bool isThere = false;
         //Check available sirens against current day to determine if a minigame is available in relation to the day
-        if(currentSession.currentDay<=1){
+        if(currentSession.currentDay<=0){
             return false;
         }
         else if(currentSession.currentDay>=dayEnableMinigame1&&!terminalSirensAreActive[0]){
@@ -155,7 +195,7 @@ public class MinigameManager : MonoBehaviour
         else if(currentSession.currentDay>=dayEnableMinigame3&&(!terminalSirensAreActive[0]||!terminalSirensAreActive[1]||!terminalSirensAreActive[2])){
             isThere=true;
         }
-        else if(currentSession.currentDay>=dayEnableMinigame3&&(!terminalSirensAreActive[0]||!terminalSirensAreActive[1]||!terminalSirensAreActive[2]||!terminalSirensAreActive[3])){
+        else if(currentSession.currentDay>=dayEnableMinigame4&&(!terminalSirensAreActive[0]||!terminalSirensAreActive[1]||!terminalSirensAreActive[2]||!terminalSirensAreActive[3])){
             isThere=true;
         }
 
