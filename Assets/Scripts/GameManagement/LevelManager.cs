@@ -192,13 +192,6 @@ public class LevelManager : MonoBehaviour
 	
 	public void levelIncomplete()
 	{
-		for(int i = 0; i < profiles.Length; i++)
-		{
-			if(profiles[i].employeeNumber == currentSession.employeeNumber)
-			{
-				currentSession.efficiency = profiles[i].efficiency; 
-			}
-		}
 		HUD.SetActive(false);
 		setCursorVisibility.RaiseEvent(true);
 		InputSystem.actions.FindActionMap("Player").Disable();
@@ -240,6 +233,8 @@ public class LevelManager : MonoBehaviour
 	
 	private IEnumerator ContinueToNextLevel()
 	{
+		loadGame();
+		currentSession = profiles[currentSession.employeeNumber];
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
 		levelFailure.SetActive(false);

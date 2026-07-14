@@ -69,8 +69,6 @@ public class levelFailure : MonoBehaviour
 		}
 		planetNameObject.GetComponent<TMP_Text>().text = planetName;
 		buildNameObject.GetComponent<TMP_Text>().text = spaceName;
-		//reset the currentSession to mimic what it looked like before the level was played
-		LevelManager.Instance.currentSession = LevelManager.Instance.profiles[LevelManager.Instance.currentSession.employeeNumber];
 	}
 	
 	public void PressMainMenuButton()
