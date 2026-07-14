@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: ShellCase
   placementContainer: {fileID: 315128608722683051}
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: PaintedShellCase
   placementContainer: {fileID: 4061116129541237838}
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: InjectorButton
   placementContainer: {fileID: 2793657507375770416}
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: ArmMount
   placementContainer: {fileID: 1791613330782537402}
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: InjectorButton
   placementContainer: {fileID: 6670807659731431219}
@@ -1339,10 +1339,13 @@ GameObject:
   - component: {fileID: 1757265203820232440}
   - component: {fileID: -3665010610626357642}
   - component: {fileID: 6375783423239618560}
+  - component: {fileID: -1285762080863004505}
   - component: {fileID: 5640564836065150441}
   - component: {fileID: 4500145129003009666}
   - component: {fileID: 6653282501697056224}
   - component: {fileID: 2362770266976844075}
+  - component: {fileID: 1599285962524748360}
+  - component: {fileID: 621323542342647607}
   m_Layer: 3
   m_Name: Core
   m_TagString: Untagged
@@ -1537,6 +1540,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Highlight
   highlightSettings: {fileID: 11400000, guid: 77806eb788a499c4089857ed316e7fa4, type: 2}
+--- !u!114 &-1285762080863004505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149017697945809494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb5c7ff6a2f5d341a8eab983f1cd995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlacementChoice
+  callOtherOption: {fileID: 11400000, guid: ee7423b7c3cd693418c9206cbb642dd6, type: 2}
+  notChosen: {fileID: 11400000, guid: b5aae258af6767b4989ebdee9fb8493d, type: 2}
+  conditionalParts:
+  - {fileID: 8428136495700563011, guid: fd12705fb08877243b39d951985ce626, type: 3}
+  - {fileID: 7492997332759494339, guid: 7bfe756f0b5eca64ea284dd707311c84, type: 3}
+  choiceID: 0
 --- !u!114 &5640564836065150441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,13 +1602,25 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: -1285762080863004505}
+        m_TargetAssemblyTypeName: PlacementChoice, Assembly-CSharp
+        m_MethodName: checkIfChosen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3529285618646249674}
         m_TargetAssemblyTypeName: BuildOrderEnforcer, Assembly-CSharp
         m_MethodName: CheckIfFinishedBuilding
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1652,6 +1685,62 @@ MonoBehaviour:
       - m_Target: {fileID: 6375783423239618560}
         m_TargetAssemblyTypeName: Highlight, Assembly-CSharp
         m_MethodName: unhighlight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1599285962524748360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149017697945809494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f7ef6d2cbe9904d924463368e1b489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChoiceEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: ee7423b7c3cd693418c9206cbb642dd6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1285762080863004505}
+        m_TargetAssemblyTypeName: PlacementChoice, Assembly-CSharp
+        m_MethodName: locateOtherOption
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &621323542342647607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149017697945809494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: b5aae258af6767b4989ebdee9fb8493d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1285762080863004505}
+        m_TargetAssemblyTypeName: PlacementChoice, Assembly-CSharp
+        m_MethodName: destroyPlacementTriggers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1835,7 +1924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: ArmMount
   placementContainer: {fileID: 878941458569947521}
@@ -2189,7 +2278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: ShellCase
   placementContainer: {fileID: 6641420104397361465}
@@ -2444,7 +2533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   itemPlaced: {fileID: 11400000, guid: 465a4afce6d01ca478b18f4dd8c31dc0, type: 2}
-  clearCrosshair: {fileID: 11400000, guid: 9f6eaa9988847484a8766b48fdfadfb4, type: 2}
+  defaultCrosshair: {fileID: 0}
   thumbsUpCrosshair: {fileID: 11400000, guid: c3f1d90847028414daff4ff309ccd0ae, type: 2}
   requiredItem: ShellCase
   placementContainer: {fileID: 3778047728505446243}

@@ -11,7 +11,8 @@ public class PlacementConditional : MonoBehaviour
 	[SerializeField] private bool recursionMode; //for when the conditional is for linearly recursive connecting pieces
 	[SerializeField] private string recursionPartName; //Name of the linearly recursive part
 	private bool conditionalComplete;
-	void Awake()
+	
+	public void Awake()
     {
 		conditionalComplete = false;
 		if(isActivation == true)
