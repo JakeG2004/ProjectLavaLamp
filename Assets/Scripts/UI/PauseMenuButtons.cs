@@ -42,9 +42,9 @@ public class PauseMenuButtons : MonoBehaviour
 
 	private IEnumerator WaitToUnloadScene(){
 		SceneLoader.Instance.UnloadScene(sceneName);
-		yield return null;
-		UnpauseGame();
-		startMenu.SetActive(true);
+        yield return null;
+        UnpauseGame();
+        startMenu.SetActive(true);
 	}
 	
     public void CancelStartMenuLoad()
