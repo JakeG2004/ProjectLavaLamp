@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ab9e6aff9cf6340a918f9fc96d9b14, type: 3}
+  m_Name: StratosphericCleanser
+  m_EditorClassIdentifier: Assembly-CSharp::LevelInfoSO
+  packages:
+  - {fileID: 11400000, guid: 75c356b2396fce54587f2ece8c9edf83, type: 2}
+  - {fileID: 11400000, guid: 2fd5efa6560ca6d42a85b63b75d29287, type: 2}
+  - {fileID: 11400000, guid: 1a76a461f9f6c3d459ebadf699d37f46, type: 2}
+  CMSpackage: {fileID: 11400000, guid: 3cf0b8e4b823c024c84ff99338c3b1bd, type: 2}
+  buildName: StratosphericCleanser
+  buildInstructions: {fileID: 11400000, guid: 5d7fa6c4bca266a42b2d9e94873985e3, type: 2}
