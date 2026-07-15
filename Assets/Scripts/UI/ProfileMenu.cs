@@ -22,6 +22,7 @@ public class ProfileMenu : MonoBehaviour
 	[SerializeField] private VoidEventChannelSO deleteProfile;
 	[SerializeField] private VoidEventChannelSO resetProfile;
 	[SerializeField] private VoidEventChannelSO startGame;
+	[SerializeField] private VoidEventChannelSO triggerNextLevel;
     [SerializeField] private GameObject HUD;
     [SerializeField] private string sceneName = "OfficeWorkplace";
 	private EmployeeData previousSession;
@@ -40,13 +41,10 @@ public class ProfileMenu : MonoBehaviour
 	
     public void LoadGame()
     {
-		startGame.RaiseEvent();
 		startMenu.SetActive(false);
         profileMenu.SetActive(false);
-		loadingScreen.SetActive(true);
-        HUD.SetActive(true);
-		SceneLoader.Instance.LoadScene(sceneName);
-        InputSystem.actions.FindActionMap("Player").Enable();
+		startGame.RaiseEvent();
+		triggerNextLevel.RaiseEvent();
     }
 	
 	public void NameProfile()

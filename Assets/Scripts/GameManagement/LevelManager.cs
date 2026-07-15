@@ -234,15 +234,18 @@ public class LevelManager : MonoBehaviour
 	private IEnumerator ContinueToNextLevel()
 	{
 		loadGame();
+		currentSession = profiles[currentSession.employeeNumber];
 		if(currentSession.coffeeLevel != 0)
 		{
 			currentSession.coffeeLevel--;
 		}
-		currentSession = profiles[currentSession.employeeNumber];
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
 		levelFailure.SetActive(false);
-		SceneLoader.Instance.UnloadScene("OfficeWorkplace");
+		if(SceneLoader.Instance.IsSceneLoaded("OfficeWorkplace"))
+		{
+			SceneLoader.Instance.UnloadScene("OfficeWorkplace");
+		}
 		yield return null;
 		SceneLoader.Instance.LoadScene("OfficeWorkplace");
 		InputSystem.actions.FindActionMap("Player").Enable();
