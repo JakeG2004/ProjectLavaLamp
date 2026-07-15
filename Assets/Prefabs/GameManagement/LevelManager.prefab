@@ -62,6 +62,8 @@ MonoBehaviour:
   sendLevel: {fileID: 11400000, guid: ec9ec9b579da19f4daa8fc92f3e853f0, type: 2}
   loadingScreen: {fileID: 0}
   startMenu: {fileID: 0}
+  menuButtons: {fileID: 0}
+  menuLogo: {fileID: 0}
   HUD: {fileID: 0}
   levelSuccess: {fileID: 0}
   levelFailure: {fileID: 0}
@@ -73,6 +75,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee4c0c57dc5ef1a4ea3fe25c3194ba2f, type: 2}
   - {fileID: 11400000, guid: 99357d61402d5ed429423524f124e9e0, type: 2}
   - {fileID: 11400000, guid: d25ff64c80c6032469459b11ef112be3, type: 2}
+  - {fileID: 11400000, guid: 8733d1c3dcd4357419445f051c182751, type: 2}
+  - {fileID: 11400000, guid: 8733d1c3dcd4357419445f051c182751, type: 2}
   - {fileID: 11400000, guid: 8733d1c3dcd4357419445f051c182751, type: 2}
   - {fileID: 11400000, guid: 8733d1c3dcd4357419445f051c182751, type: 2}
   profiles: []
