@@ -234,6 +234,10 @@ public class LevelManager : MonoBehaviour
 	private IEnumerator ContinueToNextLevel()
 	{
 		loadGame();
+		if(currentSession.coffeeLevel != 0)
+		{
+			currentSession.coffeeLevel--;
+		}
 		currentSession = profiles[currentSession.employeeNumber];
 		loadingScreen.SetActive(true);
 		levelSuccess.SetActive(false);
