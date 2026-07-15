@@ -6618,8 +6618,8 @@
     "m_ObjectId": "15045120b9444991b51ecc549d3f247a",
     "m_Title": "Noise Mask",
     "m_Position": {
-        "x": 582.999755859375,
-        "y": 1844.999755859375
+        "x": 583.0001220703125,
+        "y": 1845.0
     }
 }
 
@@ -7841,8 +7841,8 @@
     "m_ObjectId": "1d3255b74b924b6b83cb125f080ce0b1",
     "m_Title": "Metal Color ",
     "m_Position": {
-        "x": -1787.9998779296875,
-        "y": -3542.999755859375
+        "x": -1788.000244140625,
+        "y": -3543.000244140625
     }
 }
 
@@ -11663,8 +11663,8 @@
     "m_ObjectId": "45f69606ddfa4d528983cb854947a269",
     "m_Title": "Metallic controls",
     "m_Position": {
-        "x": -621.0,
-        "y": 201.0
+        "x": -621.0001220703125,
+        "y": 200.99996948242188
     }
 }
 
@@ -14385,7 +14385,7 @@
     "m_ObjectId": "61612b7f449f41deb9773b058423ffdc",
     "m_Title": "Edge mask",
     "m_Position": {
-        "x": -1521.999755859375,
+        "x": -1522.000244140625,
         "y": 2189.0
     }
 }
@@ -15281,8 +15281,8 @@
     "m_ObjectId": "6d462bfb6e024ba884af14dd5efb78ce",
     "m_Title": "Damage Overlay",
     "m_Position": {
-        "x": 1274.9998779296875,
-        "y": -97.0
+        "x": 1275.000244140625,
+        "y": -97.0001220703125
     }
 }
 
@@ -17051,8 +17051,8 @@
     "m_ObjectId": "7ae10d9081944eaeb14424beb2be5425",
     "m_Title": "Clean textures",
     "m_Position": {
-        "x": -2760.0,
-        "y": -1485.9998779296875
+        "x": -2760.00048828125,
+        "y": -1486.000244140625
     }
 }
 
@@ -17112,8 +17112,8 @@
     "m_ObjectId": "7b94fac6db234228a81a84beac89086f",
     "m_Title": "Normal Gen",
     "m_Position": {
-        "x": -1748.9998779296875,
-        "y": 127.0001220703125
+        "x": -1749.000244140625,
+        "y": 126.99996948242188
     }
 }
 
@@ -17888,8 +17888,8 @@
     "m_ObjectId": "81dbba80af4c401f88523728da32e1a5",
     "m_Title": "Smoothness Controls",
     "m_Position": {
-        "x": -1754.999755859375,
-        "y": 614.9999389648438
+        "x": -1755.000244140625,
+        "y": 615.0000610351563
     }
 }
 
@@ -19436,8 +19436,8 @@
     "m_ObjectId": "91d5582e0dd44824a00a9b7a82374cac",
     "m_Title": "Damage Amount",
     "m_Position": {
-        "x": 201.00009155273438,
-        "y": -106.99993896484375
+        "x": 201.0,
+        "y": -107.0001220703125
     }
 }
 
@@ -21435,8 +21435,8 @@
     "m_ObjectId": "a2be72e7538143968e3778260f462770",
     "m_Title": "Emisive controls",
     "m_Position": {
-        "x": -1176.0,
-        "y": 996.9998168945313
+        "x": -1176.000244140625,
+        "y": 997.0001220703125
     }
 }
 
@@ -23103,13 +23103,13 @@
     "m_RefNameGeneratedByDisplayName": "Damage Amount",
     "m_DefaultReferenceName": "_Damage_Amount",
     "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
+    "m_GeneratePropertyBlock": false,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_DismissedVersion": 0,
     "m_Precision": 0,
     "overrideHLSLDeclaration": true,
-    "hlslDeclarationOverride": 2,
+    "hlslDeclarationOverride": 1,
     "m_Hidden": false,
     "m_PerRendererData": false,
     "m_customAttributes": [],
@@ -24207,7 +24207,7 @@
     "m_ObjectId": "c343c82bb58e452185377fc43b7857a3",
     "m_Title": "AO Controls",
     "m_Position": {
-        "x": -829.0,
+        "x": -829.0001220703125,
         "y": 1420.0
     }
 }
@@ -25984,8 +25984,8 @@
     "m_ObjectId": "d240f60a012e4d149872206f02c1fd0c",
     "m_Title": "Noise mask",
     "m_Position": {
-        "x": -1619.9998779296875,
-        "y": 1767.0
+        "x": -1620.000244140625,
+        "y": 1767.0001220703125
     }
 }
 
@@ -28444,8 +28444,8 @@
     "m_ObjectId": "edf6fb50e5cd4bd8b8cc1bcdb807acca",
     "m_Title": "Non metal color",
     "m_Position": {
-        "x": -1292.0,
-        "y": -2195.999755859375
+        "x": -1292.000244140625,
+        "y": -2196.000244140625
     }
 }
 
