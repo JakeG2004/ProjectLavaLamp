@@ -14,7 +14,7 @@ public class PauseMenuButtons : MonoBehaviour
     [SerializeField] private GameObject confirmStartMenuPanel;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private string sceneName = "OfficeWorkplace";
-
+	[SerializeField] private VoidEventChannelSO stopProfileTimer;
     public void UnpauseGame()
     {
         pauseMenuManager.WasUnpaused = true;
@@ -52,6 +52,7 @@ public class PauseMenuButtons : MonoBehaviour
         startMenu.SetActive(true);
 		buttonAnimator.SetTrigger("Return");
 		logoAnimator.SetTrigger("Return");
+		stopProfileTimer.RaiseEvent();
 	}
 	
     public void CancelStartMenuLoad()

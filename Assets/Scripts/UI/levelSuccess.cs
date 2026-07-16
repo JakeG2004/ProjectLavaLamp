@@ -11,6 +11,7 @@ public class LevelSuccess : MonoBehaviour
 	private GameObject stamp2;
 	private GameObject stamp3;
 	private GameObject score;
+	private GameObject buildTime;
 	private TMP_Text nextButton;
 	private int levelNumber;
 	private string planetName;
@@ -49,6 +50,10 @@ public class LevelSuccess : MonoBehaviour
 			{
 				score = child.gameObject;
 			}
+			if(child.name == "BuildTime")
+			{
+				buildTime = child.gameObject;
+			}
 			if(child.name == "NextLevel")
 			{
 				nextButton = child.gameObject.GetComponentInChildren<TMP_Text>();
@@ -85,6 +90,12 @@ public class LevelSuccess : MonoBehaviour
 			}
 			spaceName = spaceName + buildName[i];
 		}
+		float levelTime = LevelManager.Instance.currentSession.levelCompleteTimes[levelNumber];
+		int minutes = (int)(levelTime / 60);
+		int seconds = (int)(levelTime - (minutes * 60));
+		int milliseconds = (int)(Mathf.Floor(1000f * (levelTime % 1f)));
+		string timeDisplayed = minutes.ToString("D2") + ":" + seconds.ToString("D2") + "." + milliseconds.ToString("D3");
+		buildTime.GetComponent<TMP_Text>().text = timeDisplayed;
 		score.GetComponent<TMP_Text>().text = LevelManager.Instance.currentSession.efficiency.ToString();
 		planetNameObject.GetComponent<TMP_Text>().text = planetName;
 		buildNameObject.GetComponent<TMP_Text>().text = spaceName;

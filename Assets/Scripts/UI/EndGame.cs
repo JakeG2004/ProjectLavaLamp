@@ -11,6 +11,8 @@ public class EndGame : MonoBehaviour
 	[SerializeField] private Sprite stampHPC;
 	[SerializeField] private Sprite stampCMS;
 	[SerializeField] private VoidEventChannelSO triggerMainMenu;
+	private GameObject score;
+	private GameObject buildTime;
 	private int[] ScienceEnding;
 	private int[] BadScienceEnding;
 	private int[] HPCEnding;
@@ -30,6 +32,14 @@ public class EndGame : MonoBehaviour
 			if(child.name == "GameResultText")
 			{
 				endGameTitleObject = child.gameObject;
+			}
+			if(child.name == "EfficiencyScore")
+			{
+				score = child.gameObject;
+			}
+			if(child.name == "BuildTime")
+			{
+				buildTime = child.gameObject;
 			}
 		}
 		if (LevelManager.Instance != null && LevelManager.Instance.currentSession != null)
@@ -68,6 +78,18 @@ public class EndGame : MonoBehaviour
 			endColor = new Color(240f/255f, 212f/255f, 57f/255f, 1f);
 		}
 		setStamps();
+		float averageTime = 0f;
+		for(int i = 0; i < 9; i++)
+		{
+			averageTime += LevelManager.Instance.currentSession.levelCompleteTimes[i];
+		}
+		averageTime = averageTime / 9f;
+		int minutes = (int)(averageTime / 60);
+		int seconds = (int)(averageTime - (minutes * 60));
+		int milliseconds = (int)(Mathf.Floor(1000f * (averageTime % 1f)));
+		string timeDisplayed = minutes.ToString("D2") + ":" + seconds.ToString("D2") + "." + milliseconds.ToString("D3");
+		buildTime.GetComponent<TMP_Text>().text = timeDisplayed;
+		score.GetComponent<TMP_Text>().text = LevelManager.Instance.currentSession.efficiency.ToString();
 		endGameTitleObject.GetComponent<TMP_Text>().text = endTitle;
 		endGameTitleObject.GetComponent<TMP_Text>().color = endColor;
 	}

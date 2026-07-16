@@ -23,6 +23,11 @@ public class LevelManager : MonoBehaviour
     public LevelInfoSO[] levels;
 	public EmployeeData[] profiles;
 	[SerializeField] private string[] profilePaths;
+	private float startTime;
+	private float endTime;
+	private float totalTime;
+	private float profileStartTime;
+	private float profileEndTime;
 	
 	public EmployeeData currentSession;
 	
@@ -177,6 +182,9 @@ public class LevelManager : MonoBehaviour
 	
 	public void levelComplete()
 	{
+		endTime = Time.realtimeSinceStartup;
+		totalTime = endTime - startTime;
+		currentSession.levelCompleteTimes[currentSession.currentDay - 1] = totalTime;
 		if(currentSession.currentDay != levels.Length)
 		{
 			currentSession.currentDay++;
@@ -229,6 +237,7 @@ public class LevelManager : MonoBehaviour
 		startMenu.SetActive(true);
 		buttonAnimator.SetTrigger("Return");
 		logoAnimator.SetTrigger("Return");
+		stopProfileGameTime();
 	}
 	
 	private IEnumerator ContinueToNextLevel()
@@ -250,6 +259,7 @@ public class LevelManager : MonoBehaviour
 		SceneLoader.Instance.LoadScene("OfficeWorkplace");
 		InputSystem.actions.FindActionMap("Player").Enable();
 		HUD.SetActive(true);
+		startTime = Time.realtimeSinceStartup;
 	}
 	
 	private IEnumerator ContinueToEndGame()
@@ -272,5 +282,20 @@ public class LevelManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.5f);
 		levelFailure.SetActive(true);
+	}
+	
+	public void startProfileGameTime()
+	{
+		profileStartTime = Time.realtimeSinceStartup;
+	}
+	
+	public void stopProfileGameTime()
+	{
+		profileEndTime = Time.realtimeSinceStartup;
+		float additionalGameTime = profileEndTime - profileStartTime;
+		loadGame();
+		currentSession = profiles[currentSession.employeeNumber];
+		currentSession.totalGameTime += additionalGameTime;
+		saveGame();
 	}
 }
