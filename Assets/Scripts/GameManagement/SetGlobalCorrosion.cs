@@ -60,5 +60,6 @@ public class SetGlobalCorrosion : MonoBehaviour
         }
 
         Shader.SetGlobalFloat(CorrosionID, 0f);
+        startingCorrosion = 0;
     }
 }
