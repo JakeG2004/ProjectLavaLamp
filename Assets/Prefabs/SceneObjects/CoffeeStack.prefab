@@ -71,7 +71,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8290782892783832528, guid: fc4ab3ebd6219eb4e88fdcb20c13c631, type: 3}
+  - {fileID: 2100000, guid: 4964c65cb0eba4647b97339dd063eb3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeStack
   stopInteraction: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
   emptyCupPrefab: {fileID: 7544416146807603691, guid: f68845f0038d178488b7d8662fd12759, type: 3}
-  requiredItem: 
   settings: {fileID: 11400000, guid: 550a07fd7d877a444ada2902367f2a50, type: 2}
   cupLocation: {x: 6, y: 3, z: -27}
 --- !u!114 &1983947613256568512
