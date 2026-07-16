@@ -21,21 +21,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Lit_CamSpeaker
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 23325ef2d30650c40913775e72ecb425, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _EMISSION
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
-  - _PARALLAXMAP
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 3
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -110,8 +105,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 3b2f8a94f8f8fe5428e43e9a988d5e6d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2bf90c22799e441c9abe709ce2e0b277_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 9fab926e2f4149943a938f5544856111, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_5d9f02a3a5194477a0b1f13a2bc82e4f_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: c1168a4f277c23f4bad09a8f314276e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_89e2b93cf2a14aaaa47ab1d061672d88_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 8e0d6e2ad1863dc4c923fb783a4b0936, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_9947b979e7dd4ab9990963def2c6f659_Texture_1_Texture2D:
@@ -122,12 +125,40 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_cf8afdb6f26245b694ebd051e9d49ae5_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 36598096e2a01e44aa969d418904b7ac, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ddceb83f8a4f4652ae13d1ca197538e3_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: ac3f71b16a76fc04096a7785dd991d19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ea23c45cd739414b87ede203471a9003_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 1fd7377d2b5814b4087025d1f2b92697, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_fb1e62be76bf4da48e2efafcc912e9ce_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 05edde01fac41f24d8ab156123301a06, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_67d86c33cd7644368c59f52ffd158402_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2d5084619f3298548b314b46572775ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_69ddef64a3de4de1965df51a05761948_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 3170208930929f34c868231566b4bfa4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_b20343430d86455ebf4b8a74078126b1_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: a959f4b42ec07b44eafc4f0dff705686, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_ba5405ad97fa4be096432b9c9054f649_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2bc30af6a23b29a42a6bac94dff12618, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -148,8 +179,10 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Base_color_Mask_Contrast: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _Blend_smoothness: 0.233
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -167,13 +200,20 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Float: 2.06
+    - _FillAmount: 0.598
+    - _Float: 0.94
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _InvertColors: 0
+    - _Mask_Noise_Scale: 40
+    - _Metal_Noise_Scale: 50
     - _Metallic: 0
+    - _Metallic_Mask_Contrast: 0.711
     - _Noise_X_size: -215.1
     - _Noise_Y_Size: 121.4
+    - _Normal_Image_Strength: 1
+    - _Normal_Mask_Contrast: 0.763
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -181,20 +221,34 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
+    - _Smoothness_Mask_Contrast: 0.832
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _Use_Emissive: 1
+    - _Use_Terminal_Shader: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
+    - _blend_metals: 0.634
     - _foam_normal_power: 1
+    - _metal_senstivity: 0.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emiss_Coffee_color: {r: 0.15723258, g: 0.039552875, b: 0, a: 1}
     - _Emiss_ON_Color: {r: 68.78592, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 95.87452, g: 95.87452, b: 95.87452, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Noise_Mask_Tileing: {r: 2, g: 3, b: 0, a: 0}
+    - _Non_metal_deterioration_color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+    - _Normal_Image_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Normal_image_tileing: {r: 1, g: 1, b: 0, a: 0}
+    - _Oxidation_Color: {r: 0.27058816, g: 0.37203258, b: 0.16220185, a: 1}
+    - _Rust_Color: {r: 0.9056604, g: 0.463577, b: 0.15806337, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Terminal_Color_1: {r: 1, g: 0.42745098, b: 0, a: 1}
+    - _Terminal_Color_2: {r: 0, g: 0.43137258, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

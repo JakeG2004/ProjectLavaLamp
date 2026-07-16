@@ -53,6 +53,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Damage_Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -107,6 +111,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_89e2b93cf2a14aaaa47ab1d061672d88_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 8e0d6e2ad1863dc4c923fb783a4b0936, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_cf8afdb6f26245b694ebd051e9d49ae5_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 36598096e2a01e44aa969d418904b7ac, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_ddceb83f8a4f4652ae13d1ca197538e3_Texture_1_Texture2D:

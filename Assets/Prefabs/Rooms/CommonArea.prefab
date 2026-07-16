@@ -3875,6 +3875,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecurityCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7518089374612451386, guid: 296f7f8309bf0964e9503eb8193304d9, type: 3}
+      propertyPath: TriggerModule.primitives.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518089374612451386, guid: 296f7f8309bf0964e9503eb8193304d9, type: 3}
+      propertyPath: 'TriggerModule.primitives.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4847080950673098810}
+    - target: {fileID: 7518089374612451386, guid: 296f7f8309bf0964e9503eb8193304d9, type: 3}
+      propertyPath: 'TriggerModule.primitives.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1436756240716353810}
     - target: {fileID: 7621671791407917431, guid: 296f7f8309bf0964e9503eb8193304d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1850016
