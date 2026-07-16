@@ -23,6 +23,7 @@ public class ProfileMenu : MonoBehaviour
 	[SerializeField] private VoidEventChannelSO resetProfile;
 	[SerializeField] private VoidEventChannelSO startGame;
 	[SerializeField] private VoidEventChannelSO triggerNextLevel;
+	[SerializeField] private VoidEventChannelSO startProfileTimer;
     [SerializeField] private GameObject HUD;
 	private EmployeeData previousSession;
 	
@@ -44,6 +45,7 @@ public class ProfileMenu : MonoBehaviour
         profileMenu.SetActive(false);
 		startGame.RaiseEvent();
 		triggerNextLevel.RaiseEvent();
+		startProfileTimer.RaiseEvent();
     }
 	
 	public void NameProfile()
@@ -141,13 +143,19 @@ public class ProfileMenu : MonoBehaviour
 						day.text = displayDay;
 					}
 				}
-				Transform hours = profileDetailPanel.transform.Find("Hours");
-				foreach(Transform child in hours)
+				Transform Hours = profileDetailPanel.transform.Find("Hours");
+				foreach(Transform child in Hours)
 				{
 					if(child.name == "Timer (TMP)")
 					{
 						TMP_Text time = child.gameObject.GetComponent<TMP_Text>();
-						//figure out how to do time here
+						float totalTime = LevelManager.Instance.currentSession.totalGameTime;
+						int hours = (int)(totalTime / 3600);
+						int minutes = (int)((totalTime / 60f) - (hours * 60));
+						int seconds = (int)(totalTime - (hours * 3600) - (minutes * 60));
+						int milliseconds = (int)(Mathf.Floor(1000f * (totalTime % 1f)));
+						string timeDisplayed = hours.ToString("D2") + ":" + minutes.ToString("D2") + ":" + seconds.ToString("D2") + "." + milliseconds.ToString("D3");
+						time.text = timeDisplayed;
 					}
 				}
 				updateEndings();

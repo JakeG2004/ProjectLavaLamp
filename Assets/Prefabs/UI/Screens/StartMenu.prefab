@@ -122,7 +122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StartMenu
   profileMenu: {fileID: 0}
   optionsMenu: {fileID: 0}
-  confirmQuitPanel: {fileID: 3569460663244140323}
 --- !u!222 &7495870769504265077
 CanvasRenderer:
   m_ObjectHideFlags: 0
