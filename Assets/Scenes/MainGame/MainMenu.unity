@@ -2126,6 +2126,10 @@ PrefabInstance:
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 1184537068}
+    - target: {fileID: 7279176589511577390, guid: 4b10cb10258f52846a811f9b2cbcb4d9, type: 3}
+      propertyPath: triggerNextLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: dfea0f0727dc19d48817a9d3c7b5fc44, type: 2}
     - target: {fileID: 7461440852190146707, guid: 4b10cb10258f52846a811f9b2cbcb4d9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

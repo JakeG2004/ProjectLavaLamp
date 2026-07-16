@@ -10,6 +10,7 @@ public class LevelSuccess : MonoBehaviour
 	private GameObject stamp1;
 	private GameObject stamp2;
 	private GameObject stamp3;
+	private GameObject score;
 	private TMP_Text nextButton;
 	private int levelNumber;
 	private string planetName;
@@ -43,6 +44,10 @@ public class LevelSuccess : MonoBehaviour
 			if(child.name == "Stamp3")
 			{
 				stamp3 = child.gameObject;
+			}
+			if(child.name == "EfficiencyScore")
+			{
+				score = child.gameObject;
 			}
 			if(child.name == "NextLevel")
 			{
@@ -80,6 +85,7 @@ public class LevelSuccess : MonoBehaviour
 			}
 			spaceName = spaceName + buildName[i];
 		}
+		score.GetComponent<TMP_Text>().text = LevelManager.Instance.currentSession.efficiency.ToString();
 		planetNameObject.GetComponent<TMP_Text>().text = planetName;
 		buildNameObject.GetComponent<TMP_Text>().text = spaceName;
 	}

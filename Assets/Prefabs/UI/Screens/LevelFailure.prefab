@@ -1422,7 +1422,7 @@ GameObject:
   - component: {fileID: 6767405238914863715}
   - component: {fileID: 6288575576146037391}
   m_Layer: 5
-  m_Name: DeathReason (TMP)
+  m_Name: CauseOfTermination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1648,7 +1648,7 @@ GameObject:
   - component: {fileID: 2003863485670829699}
   - component: {fileID: 8567563827428339620}
   m_Layer: 5
-  m_Name: CauseOfTermination
+  m_Name: TerminationNotice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2518,7 +2518,7 @@ GameObject:
   - component: {fileID: 33357771932545536}
   - component: {fileID: 3590624950365048980}
   m_Layer: 5
-  m_Name: DeathReason (TMP) (1)
+  m_Name: DeathReason
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

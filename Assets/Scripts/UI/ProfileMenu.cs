@@ -24,7 +24,6 @@ public class ProfileMenu : MonoBehaviour
 	[SerializeField] private VoidEventChannelSO startGame;
 	[SerializeField] private VoidEventChannelSO triggerNextLevel;
     [SerializeField] private GameObject HUD;
-    [SerializeField] private string sceneName = "OfficeWorkplace";
 	private EmployeeData previousSession;
 	
     private void OnEnable()

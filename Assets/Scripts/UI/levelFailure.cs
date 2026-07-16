@@ -10,6 +10,7 @@ public class levelFailure : MonoBehaviour
 	private GameObject stamp1;
 	private GameObject stamp2;
 	private GameObject stamp3;
+	private GameObject deathReason;
 	private int levelNumber;
 	private string planetName;
 	[SerializeField] private Sprite stampHPC;
@@ -43,6 +44,10 @@ public class levelFailure : MonoBehaviour
 			{
 				stamp3 = child.gameObject;
 			}
+			if(child.name == "DeathReason")
+			{
+				deathReason = child.gameObject;
+			}
 		}
         if (LevelManager.Instance != null && LevelManager.Instance.currentSession != null)
         {
@@ -58,6 +63,7 @@ public class levelFailure : MonoBehaviour
 		setStamps();
 		string buildName = currentLevel.buildName;
 		string spaceName = "";
+		string termination = "";
 		spaceName = spaceName + buildName[0];
 		for(int i = 1; i < buildName.Length; i++)
 		{
@@ -67,8 +73,17 @@ public class levelFailure : MonoBehaviour
 			}
 			spaceName = spaceName + buildName[i];
 		}
+		if(LevelManager.Instance.currentSession.efficiency <= 0)
+		{
+			termination = "Poor Efficiency";
+		}
+		else
+		{
+			termination = "Missed Deadlines";
+		}
 		planetNameObject.GetComponent<TMP_Text>().text = planetName;
 		buildNameObject.GetComponent<TMP_Text>().text = spaceName;
+		deathReason.GetComponent<TMP_Text>().text = termination;
 	}
 	
 	public void PressMainMenuButton()
