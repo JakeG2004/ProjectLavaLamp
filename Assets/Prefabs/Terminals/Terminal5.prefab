@@ -3448,6 +3448,7 @@ GameObject:
   - component: {fileID: 1563479723886224433}
   - component: {fileID: 8318762475744531659}
   - component: {fileID: 4927219754695296549}
+  - component: {fileID: 5079034066156902788}
   m_Layer: 0
   m_Name: Terminal5
   m_TagString: Untagged
@@ -3567,6 +3568,7 @@ MonoBehaviour:
   startInteract: {fileID: 11400000, guid: e05f97740f7d99c5abe714b8036d3da0, type: 2}
   stopInteract: {fileID: 11400000, guid: 1618a0b19c317cbf59f09754e973f90e, type: 2}
   setCursorVisibility: {fileID: 11400000, guid: 7f18adf6a3420704e845e1e7511ef534, type: 2}
+  changeObject: {fileID: 11400000, guid: b678fc006b04c4a4eaabca6fff34bf8e, type: 2}
   moduleCamera: {fileID: 2048862360701128671}
   Settings: {fileID: 11400000, guid: 550a07fd7d877a444ada2902367f2a50, type: 2}
   distanceFromCamera: 0.5
@@ -3633,6 +3635,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ScreenModule, Assembly-CSharp
         m_MethodName: SetCurrentItemHeld
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5079034066156902788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3864463892556060292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c148139e0d34c4f91eefe4f066375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSubscriber
+  eventChannel: {fileID: 11400000, guid: 0c69f7aa37e91cb26b63f14f44abf427, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3861565667709715837}
+        m_TargetAssemblyTypeName: ScreenModule, Assembly-CSharp
+        m_MethodName: StopInteract
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7118,7 +7148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DrillManager
   startDrillInteract: {fileID: 11400000, guid: e05f97740f7d99c5abe714b8036d3da0, type: 2}
-  stopInteract: {fileID: 11400000, guid: 926885dd11d31814d8b85f38e0857a7a, type: 2}
+  stopInteract: {fileID: 11400000, guid: 0c69f7aa37e91cb26b63f14f44abf427, type: 2}
   drill: {fileID: 4739690742134849691}
   offScreen: {fileID: 585457561389808066}
   DrillPrefabs:

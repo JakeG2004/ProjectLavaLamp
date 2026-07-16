@@ -6,6 +6,7 @@ public class ScreenModule : MonoBehaviour, IInteractable
     [SerializeField] private VoidEventChannelSO startInteract;
     [SerializeField] private VoidEventChannelSO stopInteract;
     [SerializeField] private BoolEventChannelSO setCursorVisibility;
+    [SerializeField] private GameObjectEventChannelSO changeObject;
     [SerializeField] private Camera moduleCamera;
     [SerializeField] private InteractableSettingsSO Settings;
     [SerializeField] private float distanceFromCamera = 0.5f;
@@ -57,20 +58,26 @@ public class ScreenModule : MonoBehaviour, IInteractable
         isBeingUsed = true;
         playerActionMap.Disable();
         playerMesh.enabled = false;
-        
+        changeObject.RaiseEvent(gameObject);
         CameraSwapper.Instance.SwapCameras(mainCamera, moduleCamera, EnablePlayerInteract);
         PutPlayerInFrontOfScreen();
     }
     
     public void StopInteract()
     {
-        stopInteract.RaiseEvent();
-        setCursorVisibility.RaiseEvent(false);
-        interactAction.Disable();
-        playerMesh.enabled = true;
-        
-        CameraSwapper.Instance.SwapCameras(moduleCamera, mainCamera, EnablePlayerControls);
-        isBeingUsed = false;
+        //Add a check to only run stop interact if we are still currently interacting with a given terminal
+        if(currentItemHeld!=null&&currentItemHeld==gameObject)
+        {
+            //Debug.Log("Stopinteract called from ScreenModule!");
+            stopInteract.RaiseEvent();
+            changeObject.RaiseEvent(null);
+            setCursorVisibility.RaiseEvent(false);
+            interactAction.Disable();
+            playerMesh.enabled = true;
+            
+            CameraSwapper.Instance.SwapCameras(moduleCamera, mainCamera, EnablePlayerControls);
+            isBeingUsed = false;
+        }
     }
     
     public void StartHover()
@@ -87,6 +94,7 @@ public class ScreenModule : MonoBehaviour, IInteractable
     public void SetCurrentItemHeld(GameObject newItemHeld)
     {
         currentItemHeld = newItemHeld;
+        //Debug.Log($"Holding {currentItemHeld}");
     }
 
     private void EnablePlayerInteract()
