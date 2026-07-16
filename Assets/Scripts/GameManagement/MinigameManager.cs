@@ -34,6 +34,8 @@ public class MinigameManager : MonoBehaviour
     bool hasGuaranteedNewMinigame = false;
     int guaranteedNewMinigame = -1;
 
+    [SerializeField] GameObject[] blocks;
+
 
 
     // Awake is called when object is made active
@@ -61,6 +63,28 @@ public class MinigameManager : MonoBehaviour
             if(currentSession.currentDay!=0 && 
                     DayExpectedTriggerWait.Length >= currentSession.currentDay)
             {
+
+                if(currentSession.currentDay<dayEnableMinigame1)
+                {
+                    blocks[0].SetActive(true);
+                    //Debug.Log("Block 1 enabled!");
+                }
+                if(currentSession.currentDay<dayEnableMinigame2)
+                {
+                    blocks[1].SetActive(true);
+                    //Debug.Log("Block 2 enabled!");
+                }
+                if(currentSession.currentDay<dayEnableMinigame3)
+                {
+                    blocks[2].SetActive(true); 
+                    //Debug.Log("Block 3 enabled!");   
+                }
+                if(currentSession.currentDay<dayEnableMinigame4)
+                {
+                    blocks[3].SetActive(true);
+                    //Debug.Log("Block 4 enabled!");
+                }
+
                 //If there's a new minigame today, setup so it will always trigger first.
                 if(currentSession.currentDay==dayEnableMinigame1)
                 {
