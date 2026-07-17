@@ -787,8 +787,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3571018908257344781, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1011590811}
   m_SourcePrefab: {fileID: 100100000, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
+--- !u!1 &1011590808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571018908257344781, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
+  m_PrefabInstance: {fileID: 1011590807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1011590809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7999702473942979954, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
+  m_PrefabInstance: {fileID: 1011590807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1011590810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 883892498582261346, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
+  m_PrefabInstance: {fileID: 1011590807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1011590811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011590808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65daeb1756a73e4e9d41661d971a3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadableMemo
+  Memos:
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  - standardMemo: 
+    altMemo: 
+  playerName: {fileID: 1011590810}
+  memoBody: {fileID: 1011590809}
 --- !u!1001 &1031636563
 PrefabInstance:
   m_ObjectHideFlags: 0
