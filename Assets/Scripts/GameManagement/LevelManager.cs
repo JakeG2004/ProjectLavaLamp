@@ -256,9 +256,9 @@ public class LevelManager : MonoBehaviour
 			SceneLoader.Instance.UnloadScene("OfficeWorkplace");
 		}
 		yield return null;
+		HUD.SetActive(true);
 		SceneLoader.Instance.LoadScene("OfficeWorkplace");
 		InputSystem.actions.FindActionMap("Player").Enable();
-		HUD.SetActive(true);
 		startTime = Time.realtimeSinceStartup;
 	}
 	
