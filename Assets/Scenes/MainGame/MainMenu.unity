@@ -820,25 +820,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReadableMemo
   Memos:
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
-  - standardMemo: 
+  - standardSubject: 
+    standardMemo: 
+    altSubject: 
     altMemo: 
   playerName: {fileID: 1011590810}
+  subject: {fileID: 0}
   memoBody: {fileID: 1011590809}
 --- !u!1001 &1031636563
 PrefabInstance:
