@@ -932,6 +932,7 @@ MonoBehaviour:
   moduleCamera: {fileID: 87381680730700862}
   Settings: {fileID: 11400000, guid: 550a07fd7d877a444ada2902367f2a50, type: 2}
   distanceFromCamera: 3
+  longRangeInteract: 1
 --- !u!114 &1831641233898525186
 MonoBehaviour:
   m_ObjectHideFlags: 0

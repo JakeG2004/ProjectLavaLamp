@@ -10,6 +10,8 @@ public class ScreenModule : MonoBehaviour, IInteractable
     [SerializeField] private Camera moduleCamera;
     [SerializeField] private InteractableSettingsSO Settings;
     [SerializeField] private float distanceFromCamera = 0.5f;
+	[SerializeField] private bool longRangeInteract;
+	
     private Outline outline;
     private Camera mainCamera;
     private PlayerController playerController;
@@ -40,7 +42,11 @@ public class ScreenModule : MonoBehaviour, IInteractable
     
     public float GetInteractDistance()
     {
-        return Settings.InteractionDistance;
+		if(longRangeInteract == true)
+		{
+			return Settings.InteractionDistance + 5;
+		}
+		return Settings.InteractionDistance;
     }
     
     public Vector3 GetPosition()

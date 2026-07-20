@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class TriggerReadable : MonoBehaviour, IUsable
 {
+	[SerializeField] private BoolEventChannelSO setCursorVisibility;
 	[SerializeField] private string readableTag;
 	private GameObject readable;
 	private bool currentlyReading;
@@ -26,17 +27,21 @@ public class TriggerReadable : MonoBehaviour, IUsable
 		if(currentlyReading == false)
 		{
 			HUD.SetActive(false);
+			setCursorVisibility.RaiseEvent(true);
+			readable.SetActive(true);
+			//Time.timeScale = 0f;
+			currentlyReading = true;
 			InputSystem.actions.FindActionMap("Player").Disable();
 			InputSystem.actions.FindAction("UseItem").Enable();
-			readable.SetActive(true);
-			currentlyReading = true;
 		}
 		else
 		{
-			readable.SetActive(false);
-			InputSystem.actions.FindActionMap("Player").Enable();
 			HUD.SetActive(true);
+			setCursorVisibility.RaiseEvent(false);
+			readable.SetActive(false);
+			//Time.timeScale = 1f;
 			currentlyReading = false;
+			InputSystem.actions.FindActionMap("Player").Enable();
 		}
 	}
 }
