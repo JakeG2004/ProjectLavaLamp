@@ -53,25 +53,25 @@ public class EndGame : MonoBehaviour
 	{
 		string endTitle = "Quiet Quitting";
 		Color endColor = new Color(186f/255f, 189f/255f, 189f/255f, 1f);
-		if(ArrayUtility.ArrayEquals(currentSession.levelBuildChoices, ScienceEnding) == true)
+		if(compareArrays(currentSession.levelBuildChoices, ScienceEnding))
 		{
 			//givenEnding = 1;
 			endTitle = "Science Spectacular";
 			endColor = new Color(47f/255f, 213f/255f, 205f/255f, 1f);
 		}
-		else if(ArrayUtility.ArrayEquals(currentSession.levelBuildChoices, BadScienceEnding) == true)
+		else if(compareArrays(currentSession.levelBuildChoices, BadScienceEnding))
 		{
 			//givenEnding = 2;
 			endTitle = "Antiscience Anti-Superstar";
 			endColor = new Color(1f, 135f/255f, 65f/255f, 1f);
 		}
-		else if(ArrayUtility.ArrayEquals(currentSession.levelBuildChoices, HPCEnding) == true)
+		else if(compareArrays(currentSession.levelBuildChoices, HPCEnding))
 		{
 			//givenEnding = 3;
 			endTitle = "HPC Superstar";
 			endColor = new Color(1f, 0f, 0f, 1f);
 		}
-		else if(ArrayUtility.ArrayEquals(currentSession.levelBuildChoices, CMSEnding) == true)
+		else if(compareArrays(currentSession.levelBuildChoices, CMSEnding))
 		{
 			//givenEnding = 4;
 			endTitle = "CMS Believer";
@@ -127,5 +127,18 @@ public class EndGame : MonoBehaviour
 				stamps[i].GetComponent<Image>().color = Color.clear;
 			}
 		}
+	}
+	
+	//This assumes the arrays are the same size
+	private bool compareArrays(int[] array1, int[] array2)
+	{
+		for(int i = 0; i < array1.Length; i++)
+		{
+			if(array1[i] != array2[i])
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 }

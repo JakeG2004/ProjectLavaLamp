@@ -11,6 +11,8 @@ TagManager:
   - DrillGoal
   - DrillObstacle
   - DoorCamera
+  - Memo
+  - Newspaper
   layers:
   - Default
   - TransparentFX

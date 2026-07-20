@@ -8,6 +8,8 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject startMenu;
 	[SerializeField] private GameObject levelSuccess;
+	[SerializeField] private GameObject levelFailure;
+	[SerializeField] private GameObject EndGame;
     [SerializeField] private GameObject HUD;
     [SerializeField] private string sceneName = "OfficeWorkplace";
     private InputAction pauseAction;
@@ -56,7 +58,7 @@ public class PauseMenuManager : MonoBehaviour
             return;
         }
 
-        if (!optionsMenu.activeInHierarchy && !startMenu.activeInHierarchy && !levelSuccess.activeInHierarchy)
+        if (!optionsMenu.activeInHierarchy && !startMenu.activeInHierarchy && !levelSuccess.activeInHierarchy && !levelFailure.activeInHierarchy && !EndGame.activeInHierarchy)
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
 
@@ -72,7 +74,7 @@ public class PauseMenuManager : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 HUD.SetActive(true);
-                setCursorVisibility.RaiseEvent(false);
+				setCursorVisibility.RaiseEvent(false);
                 InputSystem.actions.FindActionMap("Player").Enable();
                 wasUnpaused = false;
             }
