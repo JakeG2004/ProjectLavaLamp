@@ -640,6 +640,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3571018908257344781, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
+      propertyPath: m_TagString
+      value: Memo
+      objectReference: {fileID: 0}
     - target: {fileID: 4862674491707402639, guid: 8c4f635a9a79cc44a82138b031eb460d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3009,6 +3013,10 @@ PrefabInstance:
     - target: {fileID: 4775663747398183142, guid: 487f7106b0b315147aa49d390d867a15, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775663747398183142, guid: 487f7106b0b315147aa49d390d867a15, type: 3}
+      propertyPath: m_TagString
+      value: Newspaper
       objectReference: {fileID: 0}
     - target: {fileID: 5238272014332525152, guid: 487f7106b0b315147aa49d390d867a15, type: 3}
       propertyPath: m_AnchorMax.y
