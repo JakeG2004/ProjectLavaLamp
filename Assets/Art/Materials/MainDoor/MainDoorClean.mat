@@ -25,11 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: fc05d3fb04389004492336b7bf930959, type: 3}
+        m_Texture: {fileID: 2800000, guid: 844873cf27f4b31449e6e486f6c17bc1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 4abca883cac52fb42b39b7062378cbab, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7eccc790f9b0f3241a7037fefc81b03e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Damage_Normal:
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3046fb82eecfa254db93750fbf6048b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a35d858fce0b6b94c8060d28fef50930, type: 3}
+        m_Texture: {fileID: 2800000, guid: 68d162104e603c340a34eeb73be77968, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -179,7 +179,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Use_AO_map_as_base: 0
-    - _Use_Emissive: 0
+    - _Use_Emissive: 1
     - _Use_Terminal_Shader: 0
     - _Use_emmissive_noise: 0
     - _WorkflowMode: 1
@@ -191,7 +191,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 0.36862746, g: 1.6705883, b: 1.6078432, a: 1}
     - _Noise_Mask_Tileing: {r: 2, g: 3, b: 0, a: 0}
     - _Non_metal_deterioration_color: {r: 0.674, g: 0.4109756, b: 0.16439025, a: 1}
     - _Normal_Image_Offset: {r: 0, g: 0, b: 0, a: 0}
@@ -200,7 +200,7 @@ Material:
     - _Rust_Color: {r: 0.745, g: 0.39699256, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Terminal_Color_1: {r: 1, g: 0.42745098, b: 0, a: 1}
-    - _Terminal_Color_2: {r: 0, g: 0.43137258, b: 1, a: 1}
+    - _Terminal_Color_2: {r: 0.18431373, g: 0.8352941, b: 0.8039216, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5312033805024518529

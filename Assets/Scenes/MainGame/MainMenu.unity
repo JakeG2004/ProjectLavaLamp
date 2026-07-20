@@ -4504,6 +4504,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3285015657105834965}
     - target: {fileID: 8054495875157259482, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
+      propertyPath: EndGame
+      value: 
+      objectReference: {fileID: 584957303}
+    - target: {fileID: 8054495875157259482, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1173650471}
@@ -4515,6 +4519,10 @@ PrefabInstance:
       propertyPath: optionsMenu
       value: 
       objectReference: {fileID: 1897074378}
+    - target: {fileID: 8054495875157259482, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
+      propertyPath: levelFailure
+      value: 
+      objectReference: {fileID: 169280752}
     - target: {fileID: 8054495875157259482, guid: 9c5e26b8ff13f134c84ac365faf55148, type: 3}
       propertyPath: levelSuccess
       value: 
