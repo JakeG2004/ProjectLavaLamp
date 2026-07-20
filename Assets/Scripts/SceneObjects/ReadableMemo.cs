@@ -50,7 +50,7 @@ public class ReadableMemo : MonoBehaviour
 		}
 		else
 		{
-			if(currentSession.levelBuildChoices[memoNumber] == 1)
+			if(currentSession.levelBuildChoices[memoNumber] - 1 == 1)
 			{
 				todayMemo = Memos[memoNumber].standardMemo;
 				todaySubject = Memos[memoNumber].standardSubject;
