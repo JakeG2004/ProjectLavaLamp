@@ -79,7 +79,7 @@ public class ReadableNewspaper : MonoBehaviour
 		}
 		else
 		{
-			if(currentSession.levelBuildChoices[paperNumber] == 1)
+			if(currentSession.levelBuildChoices[paperNumber - 1] == 1)
 			{
 				todayTitle = NewsPapers[paperNumber].standardTitle;
 				todayTagline = NewsPapers[paperNumber].standardTagline;
